@@ -5,7 +5,7 @@
 
 ---
 
-###问题1
+###多个大小相同的li自动循环
 
 我们先来看一下图中：
 
@@ -32,5 +32,15 @@ ul + li  都按百分比，然后一行四个的话，每个li宽度都是25%，
 ![Mou icon](img/font-1.jpg)
 ![Mou icon](img/font-2.jpg)
 
+###CSS 截断字符串
+单行截断字符串,这里必须指定字符串的宽度
 
+{
+    /*指定字符串的宽度*/
+    width:300px;   
+    overflow: hidden;  
+    /* 当字符串超过规定长度，显示省略符*/ 
+    text-overflow:ellipsis;  
+    white-space: nowrap;   
+}
 
