@@ -50,23 +50,39 @@ ul + li  都按百分比，然后一行四个的话，每个li宽度都是25%，
 
 ###5.去掉 a，input 在移动端浏览器中的默认样式
 
-####1.禁止 a 标签背景
+####5.1.禁止 a 标签背景
 在移动端使用 a标签做按钮的时候，点按会出现一个“暗色”的背景，去掉该背景的方法如下
 
 a,button,input,optgroup,select,textarea {
     -webkit-tap-highlight-color:rgba(0,0,0,0); /*去掉a、input和button点击时的蓝色外边框和灰色半透明背景*/
 }
 
-####2.禁止长按 a，img 标签长按出现菜单栏
+####5.2.禁止长按 a，img 标签长按出现菜单栏
 使用 a标签的时候，移动端长按会出现一个 菜单栏，这个时候禁止呼出菜单栏的方法如下：
 
 a, img {
     -webkit-touch-callout: none; /*禁止长按链接与图片弹出菜单*/
 }
 
-####3.流畅滚动
+####5.3.流畅滚动
 
 body{
     -webkit-overflow-scrolling:touch;
 }
 
+
+###6.去掉selected默认的样式
+
+
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	
+	
+###7.IE9下的兼容代码
+
+
+	<!--[if lt IE 9]>
+	<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
