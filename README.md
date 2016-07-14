@@ -19,6 +19,8 @@ ul + li  都按百分比，然后一行四个的话，每个li宽度都是25%，
 
 最近浏览GitHub官网发现人家有一个页面也是这个排版，但是几个盒子大小都是出奇的一致，所以我就看了下，有兴趣了也可以自己浏览[点击这里](https://github.com/explore)，这个解决方案就是把父级元素的margin值设置为父，然后里面的盒子该怎么设置还怎么设置，这样自己元素就不会因为外间距的问题折行了，比如子元素的margin-right都为15px,那么就把ul的margin-right设置为-15px，这样就好了，原理暂时不清楚，待探究~
 
+补充：这个其实有很多方案的，像是直接盒子布局不要布局padding而是换成margin可能也可以解决这个问题！
+
 
 ###2.左侧小三角的css实现
 
@@ -68,12 +70,26 @@ body{
 }
 
 
-###6.去掉selected默认的样式
+###<font color="#f3e3076">6.去掉selected默认的样式</font>
 
+刚才看到张鑫旭大大的博客才知道，appearance还有很多属性，但是可能目前支持兼容性不是很好，有一个***menulist***我觉得在处理select的时候可能用的上，**另外这个属性并不是专属于select的，而是所有input输入框都拥有这个属性！**
 
 	appearance:none;
 	-moz-appearance:none;
 	-webkit-appearance:none;
+	
+===
+	
+IE10浏览器下，**::-ms-expand**可以改变下拉框元素的下拉按钮样式。
+
+	::-ms-expand {
+    	padding: .5em;
+    	color: #34538b;
+    	border: 1px solid #a0b3d6;
+    	background: #f0f3f9;
+	}
+
+
 	
 	
 ###7.IE9下的兼容代码
@@ -83,3 +99,83 @@ body{
 	<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
+	
+###<font color="#f3e3076">8.display: table-cell;与大小不一定的元素的垂直居中</font>
+
+	/*这里的大小是根据高宽上限128像素图片设置的*/
+	div {
+		display:table-cell;  /* 重点1 */
+		width:1em; 
+		height:1em; 
+		border:1px solid #beceeb; 
+		font-size:144px;
+		text-align:center;  /* 重点2 */
+		vertical-align:middle; /* 重点3 */
+	} 
+	div img{
+		vertical-align:middle; /* 重点4 */
+	}
+	
+	
+	
+###9.让英文同汉字一样自动换行
+因为很多时候我们没有注意到同样的盒子内部有时候输入汉字他能够自己折行，按照盒子大小自动换行，但是英文却不行，这个很常见，但是为了是自己有个记性，特写在此！	
+
+	word-break: break-all;
+
+
+###10.让图片或者文字垂直居中的方法（vertical-align）
+
+	html:
+	<p style="height:200px"><img src=""><i></i></p>
+	
+	css:
+	img { vertical-align: middle;}
+	
+	i {
+	display: inline-block;  	/* inline-block化 */
+	width: 0;					/* 0宽度100%高度的辅助元素 */
+	height: 100%;
+	vertical-align: middle;
+	}
+	
+	
+	
+	
+###<font color="#f3e3076">11.给input的placeholder文字设置色值</font>
+
+IE浏览器下的写法：
+
+	:-ms-input-placeholder {
+    	color: mediumvioletred;
+    	text-indent: 5px;
+	}
+	
+Chrome浏览器：
+
+	::-webkit-input-placeholder {
+    	color: mediumvioletred;
+    	text-indent: 5px;
+	}
+	
+FireFox浏览器：FireFox浏览器下占位符文字的透明度默认是0.54，因此需要强制opacity: 1让placeholder值颜色与IE/Chrome一致。
+	
+	::-moz-placeholder {
+    	color: mediumvioletred;
+    	text-indent: 5px; /* 不起作用 */
+    	opacity: 1!important;
+	}
+
+
+###12.伪元素::-ms-value
+可以更改文本框(如type=text, type=password等)以及下拉框(select)的样式。例如下面的HTML代码：
+
+	::-ms-value {
+    	padding: 4px;
+    	color: #34538b;
+    	border: 1px solid #a0b3d6;
+    	background-color: #f0f3f9;
+	}
+	
+
+
