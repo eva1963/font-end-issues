@@ -177,5 +177,12 @@ FireFox浏览器：FireFox浏览器下占位符文字的透明度默认是0.54�
     	background-color: #f0f3f9;
 	}
 	
+###13.<font color='#f3e3076'>display: inline-block 引起的间隙问题</font>
+现在我们布局列表的时候很少用到float浮动了，因为浮动会让盒子的高度塌陷，随之会出现很多令人头痛的问题，现在我们大概都使用display： inline-block比较多，但是这个又会因为换行导致元素块与块之间会产生一定的间隙
+
+1.处理这个间隙我们一般的方法是用<font color='#f3e3076'>**font-size：0；**</font>
+
+2.但是有时会因为就兼容性失效，那就在介绍一个别的方法，就是<font color='#f3e3076'>**letter-spacing： -4px；**</font>这个兼容性较之稍微好一点；
+	
 
 
