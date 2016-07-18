@@ -2,6 +2,18 @@
     padding: 0;
     margin: 0;
 }
+html {
+    line-height: 1.5;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+}
+h1,h2,h3,h4,h5 {
+    margin: 20px 0;
+}
 
 
 /* css写三角 */
@@ -35,10 +47,133 @@
 .font {
     width: 700px;
     margin: 0 auto;
-    background: #000;
+    background: #337ab7;
     line-height: 100%;
 }
 .font h2 {
     font-size: 14px;
     color: red;
 }
+
+
+
+.overflow {
+    width: 600px;
+    height: 139px;
+    margin: 20px auto;
+    background: #ddd;
+
+    /* 图中出现多的多余的滚动条是因为这个属性 */
+    overflow: scroll;
+}
+.overflow .overflow-wrap {
+    width: 600px;
+    height: 125px;
+    background: red;
+}
+.overflow .overflow-wrap img {
+    vertical-align: top;
+
+}
+.overflow .overflow-wrap span {
+    background: #337ab7;
+    line-height: 24px;
+
+}
+
+
+/* 给滚动条设置样式 */
+.overflow::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+.overflow::-webkit-scrollbar-thumb {
+    background: #337ab7;
+    border-radius: 6px;
+}
+.overflow::-webkit-scrollbar-track {
+    background: #dddddd;
+    border-radius: 6px;
+}
+
+.father-box {
+    margin: 20px auto;
+    padding: 20px;
+    text-align: justify;
+    background: #1f9866;
+}
+.father-box .child-box {
+    width: 170px;
+    height: 120px;
+    margin-bottom: 20px;
+    display: inline-block;
+    background: pink;
+    vertical-align: top;
+}
+.father-box .justify-fix {
+    width: 100%;
+    height: 0;
+    display: inline-block;
+    overflow: hidden;
+}
+
+
+/* 横向滚动 */
+.controller-list {
+    width: 100%;
+    height: 160px;
+    white-space: nowrap;
+    margin-right: -20px;
+    background: #1abc9c;
+    margin-bottom: 100px;
+    padding: 20px;
+    overflow-x: scroll;
+}
+.controller-list .controller-item {
+    display: inline-block;
+    margin-right: 20px;
+    width: 200px;
+    height: 100%;
+    vertical-align: top;
+    background: #c60012;
+}
+.controller-list::-webkit-scrollbar {
+     width: 8px;
+     height: 8px;
+ }
+.controller-list::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 6px;
+}
+.controller-list::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.6);
+    border-radius: 6px;
+}
+
+
+
+
+/* overflow-father */
+.overflow-father {
+    width: 600px;
+    height: 400px;
+    visibility: hidden;
+    background: #000;
+
+    /* 隐藏元素的方法 */
+    /*zoom: 0.003;*/
+    /*transform: scale(0);*/
+}
+
+
+.overflow-father .overflow-child {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: #c60012;
+    visibility: visible;
+    clip: rect(0 300px 100px 50px);
+
+}
+
+
