@@ -186,6 +186,8 @@ FireFox浏览器：FireFox浏览器下占位符文字的透明度默认是0.54�
 1.处理这个间隙我们一般的方法是用<font color='#f3e3076'>**font-size：0；**</font>
 
 2.但是有时会因为就兼容性失效，那就在介绍一个别的方法，就是<font color='#f3e3076'>**letter-spacing： -4px；**</font>这个兼容性较之稍微好一点；
+暂时有13个问题
+
 	
 
 
