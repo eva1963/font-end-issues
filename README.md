@@ -37,15 +37,18 @@ ul + li  都按百分比，然后一行四个的话，每个li宽度都是25%，
 ###4.CSS 截断字符串
 单行截断字符串,这里必须指定字符串的宽度
 
-{
-    /*指定字符串的宽度*/
-    width:300px;   
-    overflow: hidden;  
-    /* 当字符串超过规定长度，显示省略符*/ 
-    text-overflow:ellipsis;  
-    white-space: nowrap;   
-}
 
+	/* 指定字符串的宽度 */
+    
+    width:300px;   
+    
+    overflow: hidden;  
+    
+    /* 当字符串超过规定长度，显示省略符*/ 
+    
+    text-overflow:ellipsis;  
+    
+    white-space: nowrap;  
 
 ###5.去掉 a，input 在移动端浏览器中的默认样式
 
