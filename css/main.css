@@ -4,6 +4,7 @@
 }
 html {
     line-height: 1.5;
+    font-size: 14px;
 }
 
 .container {
@@ -151,12 +152,20 @@ h1,h2,h3,h4,h5 {
 }
 
 
+.wrapper {
+    width: 100%;
+    padding: 20px;
+}
 
-
-/* overflow-father */
-.overflow-father {
+.left {
     width: 600px;
-    height: 400px;
+    height: auto;
+    float: left;
+}
+/* overflow-father */
+.left .overflow-father {
+    width: 500px;
+    height: 120px;
     visibility: hidden;
     background: #000;
 
@@ -166,14 +175,92 @@ h1,h2,h3,h4,h5 {
 }
 
 
-.overflow-father .overflow-child {
+.left .overflow-father .overflow-child {
     position: absolute;
     width: 300px;
     height: 300px;
     background: #c60012;
     visibility: visible;
     clip: rect(0 300px 100px 50px);
-
 }
 
 
+.right   {
+    width: 400px;
+    float: right;
+}
+/* 关于icon水平居中的最佳解决方案 */
+.right .icon-box {
+    width: 300px;
+    height: 40px;
+}
+.right .icon-box .icon {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    color: transparent;
+    text-indent: -99px;
+    white-space: nowrap;
+}
+.right .one .icon {
+    background: url("../img/dz_question.png") no-repeat center;
+}
+.right .two .icon {
+    background: url("../img/black_show.png") no-repeat center;
+}
+.right .three .icon {
+    background: url("../img/AiQiYi.png") no-repeat center;
+}
+.right .four .icon {
+    background: url("../img/b.png") no-repeat center;
+}
+
+.right .icon-box .icon:before {
+    content: '\3000';
+}
+
+
+/* form表单的样式 */
+form {
+    margin: 30px auto;
+}
+pre {
+    padding: 10px 1em;
+    margin: 1em 0;
+    border: 1px dashed #ccc;
+    background-color: #fff;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    text-align: left;
+}
+select {
+    width: 120px;
+}
+.label-left {
+    width: 100px;
+    float:left;
+}
+.test {
+    width: 600px;
+    margin:100px auto auto;
+}
+.pay {
+    padding: 5px 0 5px 100px;
+    margin: 20px 0;
+    background-color: #EDF3F5;
+    font-size: 16px;
+    font-weight: bold;
+}
+.disabled {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    pointer-events: none;
+    cursor: default;
+}
+.loaded label.label-left {
+    padding-top: 10px;
+}
+.ui_dialog_remind {
+    word-wrap: break-word;
+}
