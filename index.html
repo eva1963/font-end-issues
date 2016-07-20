@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <title>css三角</title>
 
-    <link rel="stylesheet" href="main.css"/>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/lib.css"/>
+    <link rel="stylesheet" href="css/variable.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+
+    <!--<script src="js/plugin/sea.js"></script>-->
 </head>
 <body>
 
@@ -69,12 +75,266 @@
     </ul>
 </div>
 
-
 <div class="container">
-    <h3>overflow的研究</h3>
-    <div class="overflow-father">
-        <div class="overflow-child"></div>
+
+    <div class="left">
+        <div class="wrapper">
+            <h3>overflow的研究</h3>
+            <div class="overflow-father">
+                <div class="overflow-child"></div>
+            </div>
+        </div>
+
+        <!-- 原生表单的样式改变sea.js -->
+        <div class="wrapper">
+            <form id="validateForm" class="bgwh">
+                <h6 class="f14 b">完成您的购物订单<i class="icon icon_title_inf vn ui_tips" title="星号为必填"></i></h6>
+                <div class="clearfix mt15">
+                    <label class="label-left">邮箱<span class="red abs">*</span></label>
+                    <div class="cell">
+                        <input type="email" class="ui_input" name="email" required="">
+                    </div>
+                </div>
+                <div class="clearfix mt15">
+                    <label class="label-left">手机号<span class="red abs">*</span></label>
+                    <div class="cell">
+                        <input type="tel" class="ui_input" name="tel" required="">
+                    </div>
+                </div>
+                <div class="clearfix mt15">
+                    <span class="label-left">您的款式<span class="red abs">*</span></span>
+                    <div class="cell">
+                        <input type="radio" id="radioMale" name="type" value="488"><label class="ui_radio" for="radioMale"></label><label class="mr20 ml5" for="radioMale">男款</label>
+                        <input type="radio" id="radioFemale" name="type" value="388" required=""><label class="ui_radio" for="radioFemale"></label><label for="radioFemale" class="ml5">女款</label>
+                        <p id="radioMaleP" class="dn mt10">男款每件488元</p>
+                        <p id="radioFemaleP" class="dn mt10">女款每件388元</p>
+                    </div>
+                </div>
+                <div class="clearfix mt15">
+                    <label class="label-left" for="number">购买数量<span class="red abs">*</span></label>
+                    <div class="cell">
+                        <input type="number" id="number" class="ui_input" min="1" max="10" size="5" value="1" required="" placeholder="直接输入数值">
+                    </div>
+                </div>
+                <div class="clearfix mt15">
+                    <label class="label-left">所在城市<span class="red abs">*</span></label>
+                    <div class="cell">
+                        <select id="citySelect" required="">
+                            <option value="">请选择</option>
+                            <option value="10">深圳</option>
+                            <option value="5">上海</option>
+                            <option value="7">北京</option>
+                            <option value="8">成都</option>
+                            <option value="6">武汉</option>
+                        </select>
+                        <p class="mt10 dn">运费： <strong id="transPrice" class="red">0</strong> 元</p>
+                    </div>
+                </div>
+                <div class="clearfix mt15">
+                    <label class="label-left">给商家留言</label>
+                    <div class="cell">
+                        <div class="ui_textarea"><textarea name="message" rows="4" maxlength="200" placeholder="少于200字符"></textarea></div>
+                    </div>
+                </div>
+                <div class="clearfix mt15">
+                    <span class="label-left">&nbsp;</span>
+                    <div class="cell">
+                        <input type="checkbox" id="checkInsur" name="insurance" value="0.4"><label class="ui_checkbox" for="checkInsur"></label><label class="ml5" for="checkInsur">使用运费险0.4元</label>
+                    </div>
+                </div>
+                <p class="pay">您总共需要支付 <strong id="total" class="red">0</strong> 元</p>
+                <div class="clearfix mt15">
+                    <span class="label-left">是否货到付款</span>
+                    <div class="cell">
+                        <input type="checkbox" id="switch" name="pay"><label class="ui_switch" for="switch"></label>
+                    </div>
+                </div>
+                <div class="clearfix mt15">
+                    <label class="label-left" for="achieveDate">希望到货日期</label>
+                    <div class="cell">
+                        <span class="ui_input ui_date_input"><input type="date" id="achieveDate" name="achieve" value="2015-12-27" min="2015-12-27"></span>
+                        <span class="gray ml20">默认尽快发货</span>
+                    </div>
+                </div>
+                <div class="clearfix mt20">
+                    <span class="label-left">&nbsp;</span>
+                    <div class="cell">
+                        <input type="submit" id="validateSubmit" class="clip">
+                        <label for="validateSubmit" class="ui_button ui_button_primary">提交</label>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+
+    <div class="right">
+        <!-- 关于icon水平居中的最佳解决方案 -->
+        <div class="wrapper">
+            <h3>关于icon水平居中的最佳解决方案</h3>
+            <div class="icon-box one"><i class="icon"></i><a href="javascript:;">测试</a></div>
+            <div class="icon-box two"><i class="icon"></i><a href="javascript:;">测试</a></div>
+            <div class="icon-box three"><i class="icon"></i><a href="javascript:;">测试</a></div>
+            <div class="icon-box four"><i class="icon"></i><a href="javascript:;">测试</a></div>
+        </div>
+    </div>
+
 </div>
+
+<!--<script>-->
+
+    <!--window.seajs &&-->
+    <!--seajs.config({-->
+        <!--base: "//mp.gtimg.cn/old_mp/assets/js",-->
+        <!--map: [[/^(.*\.(?:css|js))(.*)$/i, '$1?v=' + Math.random()]],-->
+        <!--alias: {-->
+            <!--jquery: 'plugin/jquery'-->
+        <!--}-->
+    <!--}).use(['jquery'], function() {-->
+        <!--var fnMoney = function() {-->
+            <!--// 单价-->
+            <!--var unitPrice = 0,-->
+            <!--// 数量-->
+                    <!--number = 1,-->
+            <!--// 运费-->
+                    <!--freight = 0,-->
+            <!--// 运费险-->
+                    <!--insurance = 0;-->
+
+            <!--// 真实值-->
+            <!--radioTypes.each(function() {-->
+                <!--if ($(this).prop('checked')) {-->
+                    <!--unitPrice = this.value;-->
+                <!--}-->
+            <!--});-->
+
+            <!--number = elNumber.val();-->
+
+            <!--freight = elCity.val() || 0;-->
+
+            <!--if (elInsur.prop('checked')) {-->
+                <!--insurance = elInsur.val();-->
+            <!--}-->
+
+            <!--var total = unitPrice * number + freight*1 + insurance*1;-->
+
+            <!--if (unitPrice == 0) {-->
+                <!--total = 0;-->
+            <!--}-->
+
+            <!--elTotal.html(total || 0);-->
+
+        <!--};-->
+
+        <!--var fnSubmit = function() {-->
+            <!--alert('提交的数据是：' + elForm.serialize());-->
+        <!--};-->
+
+        <!--var radioTypes = $('input[name="type"]').click(function() {-->
+                    <!--$(this).parent().find('p').hide();-->
+                    <!--$('#' + this.id + 'P').show();-->
+                    <!--fnMoney();-->
+                <!--}),-->
+                <!--elNumber = $('#number').on('oninput' in document.body? 'input': 'change', fnMoney),-->
+                <!--elCity = $('#citySelect').change(function() {-->
+                    <!--var elPrice = $('#transPrice');-->
+                    <!--if (this.value) {-->
+                        <!--elPrice.html(this.value).parent().show();-->
+                    <!--} else {-->
+                        <!--elPrice.html(0).parent().hide();-->
+                    <!--}-->
+                    <!--fnMoney();-->
+                <!--}),-->
+                <!--elInsur = $('#checkInsur').click(fnMoney),-->
+                <!--elForm = $('#validateForm').submit(function(event) {-->
+                    <!--if (!$(this).attr('novalidate')) {-->
+                        <!--fnSubmit();-->
+                    <!--}-->
+                    <!--event.preventDefault();-->
+                <!--}),-->
+                <!--elTotal = $('#total');-->
+
+
+        <!--// 加载mpqq  也就是QQ公众号需要的脚本-->
+        <!--$('#excuteBtn').click(function() {-->
+            <!--if ($(this).hasClass('disabled')) return false;-->
+
+            <!--// 加载CSS-->
+            <!--var style = document.createElement('link');-->
+            <!--style.rel = 'stylesheet';-->
+            <!--style.href = '//mp.gtimg.cn/assetscom/theme/modern/common/ui.css';-->
+            <!--document.getElementsByTagName('head')[0].appendChild(style);-->
+
+            <!--// 加载JS-->
+            <!--seajs.use([-->
+                <!--'common/ui/Radio',-->
+                <!--'common/ui/Checkbox',-->
+                <!--'common/ui/Select',-->
+                <!--'common/ui/DateTime',-->
+                <!--'common/ui/Tips',-->
+                <!--'common/ui/Dialog',-->
+                <!--'common/ui/Validate'-->
+            <!--], function(Radio, Checkbox, Select, DateTime, Tips, Dialog, Validate) {-->
+                <!--// 单复选框和下拉初始化-->
+                <!--Radio.init();-->
+                <!--Checkbox.init();-->
+                <!--Select.init();-->
+
+                <!--// 日期-->
+                <!--new DateTime($('#achieveDate'));-->
+
+                <!--// 黑色tips初始化-->
+                <!--new Tips($('.ui_tips'));-->
+
+                <!--// 弹框-->
+                <!--window.alert = function(message) {-->
+                    <!--new Dialog().alert(message);-->
+                <!--};-->
+
+                <!--// 验证-->
+                <!--new Validate(elForm, fnSubmit);-->
+            <!--});-->
+
+            <!--elForm.addClass('loaded');-->
+
+            <!--$(this).html('加载和执行成功').addClass('disabled');-->
+        <!--});-->
+    <!--});-->
+
+    <!--// 加载CSS-->
+    <!--var style = document.createElement('link');-->
+    <!--style.rel = 'stylesheet';-->
+    <!--style.href = '//mp.gtimg.cn/assetscom/theme/modern/common/ui.css';-->
+    <!--document.getElementsByTagName('head')[0].appendChild(style);-->
+
+    <!--// 加载JS-->
+    <!--seajs.use([-->
+        <!--'common/ui/Radio',-->
+        <!--'common/ui/Checkbox',-->
+        <!--'common/ui/Select',-->
+        <!--'common/ui/DateTime',-->
+        <!--'common/ui/Tips',-->
+        <!--'common/ui/Dialog',-->
+        <!--'common/ui/Validate'-->
+    <!--], function(Radio, Checkbox, Select, DateTime, Tips, Dialog, Validate) {-->
+        <!--// 单复选框和下拉初始化-->
+        <!--Radio.init();-->
+        <!--Checkbox.init();-->
+        <!--Select.init();-->
+
+        <!--// 日期-->
+        <!--new DateTime($('#achieveDate'));-->
+
+        <!--// 黑色tips初始化-->
+        <!--new Tips($('.ui_tips'));-->
+
+        <!--// 弹框-->
+        <!--window.alert = function(message) {-->
+            <!--new Dialog().alert(message);-->
+        <!--};-->
+
+        <!--// 验证-->
+        <!--new Validate(elForm, fnSubmit);-->
+    <!--});-->
+<!--</script>-->
 </body>
 </html>
