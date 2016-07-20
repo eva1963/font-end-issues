@@ -186,7 +186,25 @@ FireFox浏览器：FireFox浏览器下占位符文字的透明度默认是0.54�
 1.处理这个间隙我们一般的方法是用<font color='#f3e3076'>**font-size：0；**</font>
 
 2.但是有时会因为就兼容性失效，那就在介绍一个别的方法，就是<font color='#f3e3076'>**letter-spacing： -4px；**</font>这个兼容性较之稍微好一点；
-暂时有13个问题
+
+###14.不同尺寸的icon小图标自动居中最佳方案
+
+这些小的问题解决方案都是摘自张鑫旭大大<http://www.zhangxinxu.com>的博客，有兴趣的同学可以自己到他的网站中查看，说不定自己也没能收货很多意想不到的东西哦~
+
+这里只是展示主要代码，详细案例在HTML网页中有实例：
+
+	.icon {
+		display: inline-block;
+		width: 20px;	
+		height: 20px;
+		background: url("image/icon.png") no-repeat center;
+		white-space: nowrap;
+		letter-spacing: -1em;
+		text-indent: -99em;
+		color: transparent;
+		}
+	<!-- 这个很重要，是决定icon居中的核心 -->
+	.icon:before {	content: '\3000';	}		
 
 	
 
