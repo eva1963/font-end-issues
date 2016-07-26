@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Font-end-issues by eva1963</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Font-end-issues</h1>
+      <h2 class="project-tagline">针对前端整理一些平时项目会遇到的一些问题的解决方案</h2>
+      <a href="https://github.com/eva1963/font-end-issues" class="btn">View on GitHub</a>
+      <a href="https://github.com/eva1963/font-end-issues/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/eva1963/font-end-issues/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h2>
+<a id="前端问题总结" class="anchor" href="#%E5%89%8D%E7%AB%AF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>前端问题总结</h2>
+
+<p>在平时的项目上我们总会遇到这样那样的问题，有时候为了赶项目我们不得不采取采取一些简单的但未必是最好的解决方案，所以我在空闲的时候就像把这些当时做出来的不是最优解决方案的一些问题重新梳理一下，然后找到最优解决方案，参照一些大网站的作法使得自己的网站更扎实，更稳定！</p>
+
+<hr>
+
+<h3>
+<a id="1多个大小相同的li自动循环" class="anchor" href="#1%E5%A4%9A%E4%B8%AA%E5%A4%A7%E5%B0%8F%E7%9B%B8%E5%90%8C%E7%9A%84li%E8%87%AA%E5%8A%A8%E5%BE%AA%E7%8E%AF" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.多个大小相同的li自动循环</h3>
+
+<p>我们先来看一下图中：</p>
+
+<p><img src="img/01.jpg" alt="Mou icon"></p>
+
+<p>旧解决方案：</p>
+
+<p>ul + li  都按百分比，然后一行四个的话，每个li宽度都是25%，然后统一设置padding-right的值，再用css3的:nth-child(4n)将每个4n个li的padding值设置为0，之前一直这样做，但是一直都知道这样是不对的，你们也许发现了，如果最后一个padding值为0的话那么宽度自然就会比其他有padding值的li要宽，所以这个不是最优解决方案！</p>
+
+<p>新方案：</p>
+
+<p>最近浏览GitHub官网发现人家有一个页面也是这个排版，但是几个盒子大小都是出奇的一致，所以我就看了下，有兴趣了也可以自己浏览<a href="https://github.com/explore">点击这里</a>，这个解决方案就是把父级元素的margin值设置为父，然后里面的盒子该怎么设置还怎么设置，这样自己元素就不会因为外间距的问题折行了，比如子元素的margin-right都为15px,那么就把ul的margin-right设置为-15px，这样就好了，原理暂时不清楚，待探究~</p>
+
+<p>补充：这个其实有很多方案的，像是直接盒子布局不要布局padding而是换成margin可能也可以解决这个问题！</p>
+
+<h3>
+<a id="2左侧小三角的css实现" class="anchor" href="#2%E5%B7%A6%E4%BE%A7%E5%B0%8F%E4%B8%89%E8%A7%92%E7%9A%84css%E5%AE%9E%E7%8E%B0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2.左侧小三角的css实现</h3>
+
+<p>这个其实主要讲的是drop-shadow和普通box-shadow的差别，drop-shadow其实才算是真正意义上的投影，而box-shadow可能用阴影来描述更为合适；(但是目前drop-shadow兼容性并不是很好，慎用)
+<img src="img/shadow.jpg" alt="Mou icon"></p>
+
+<h3>
+<a id="3字体上下间隙的解决方法" class="anchor" href="#3%E5%AD%97%E4%BD%93%E4%B8%8A%E4%B8%8B%E9%97%B4%E9%9A%99%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.字体上下间隙的解决方法</h3>
+
+<p>我们都知道当定义了字体大小之后，字体上下总会有些间隙不能去除，用line-height=100%可能可以解决你的这一大烦恼；</p>
+
+<p><img src="img/font-1.jpg" alt="Mou icon">
+<img src="img/font-2.jpg" alt="Mou icon"></p>
+
+<h3>
+<a id="4css-截断字符串" class="anchor" href="#4css-%E6%88%AA%E6%96%AD%E5%AD%97%E7%AC%A6%E4%B8%B2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4.CSS 截断字符串</h3>
+
+<p>单行截断字符串,这里必须指定字符串的宽度</p>
+
+<pre><code>/* 指定字符串的宽度 */
+
+width:300px;   
+
+overflow: hidden;  
+
+/* 当字符串超过规定长度，显示省略符*/ 
+
+text-overflow:ellipsis;  
+
+white-space: nowrap;  
+</code></pre>
+
+<h3>
+<a id="5去掉-ainput-在移动端浏览器中的默认样式" class="anchor" href="#5%E5%8E%BB%E6%8E%89-ainput-%E5%9C%A8%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.去掉 a，input 在移动端浏览器中的默认样式</h3>
+
+<h4>
+<a id="51禁止-a-标签背景" class="anchor" href="#51%E7%A6%81%E6%AD%A2-a-%E6%A0%87%E7%AD%BE%E8%83%8C%E6%99%AF" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.1.禁止 a 标签背景</h4>
+
+<p>在移动端使用 a标签做按钮的时候，点按会出现一个“暗色”的背景，去掉该背景的方法如下</p>
+
+<p>a,button,input,optgroup,select,textarea {
+    -webkit-tap-highlight-color:rgba(0,0,0,0); /<em>去掉a、input和button点击时的蓝色外边框和灰色半透明背景</em>/
+}</p>
+
+<h4>
+<a id="52禁止长按-aimg-标签长按出现菜单栏" class="anchor" href="#52%E7%A6%81%E6%AD%A2%E9%95%BF%E6%8C%89-aimg-%E6%A0%87%E7%AD%BE%E9%95%BF%E6%8C%89%E5%87%BA%E7%8E%B0%E8%8F%9C%E5%8D%95%E6%A0%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.2.禁止长按 a，img 标签长按出现菜单栏</h4>
+
+<p>使用 a标签的时候，移动端长按会出现一个 菜单栏，这个时候禁止呼出菜单栏的方法如下：</p>
+
+<p>a, img {
+    -webkit-touch-callout: none; /<em>禁止长按链接与图片弹出菜单</em>/
+}</p>
+
+<h4>
+<a id="53流畅滚动" class="anchor" href="#53%E6%B5%81%E7%95%85%E6%BB%9A%E5%8A%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5.3.流畅滚动</h4>
+
+<p>body{
+    -webkit-overflow-scrolling:touch;
+}</p>
+
+<h3>
+<a id="6去掉selected默认的样式" class="anchor" href="#6%E5%8E%BB%E6%8E%89selected%E9%BB%98%E8%AE%A4%E7%9A%84%E6%A0%B7%E5%BC%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.去掉selected默认的样式</h3>
+
+<p>刚才看到张鑫旭大大的博客才知道，appearance还有很多属性，但是可能目前支持兼容性不是很好，有一个<strong><em>menulist</em></strong>我觉得在处理select的时候可能用的上，<strong>另外这个属性并不是专属于select的，而是所有input输入框都拥有这个属性！</strong></p>
+
+<pre><code>appearance:none;
+-moz-appearance:none;
+-webkit-appearance:none;
+</code></pre>
+
+<h1></h1>
+
+<p>IE10浏览器下，<strong>::-ms-expand</strong>可以改变下拉框元素的下拉按钮样式。</p>
+
+<pre><code>::-ms-expand {
+    padding: .5em;
+    color: #34538b;
+    border: 1px solid #a0b3d6;
+    background: #f0f3f9;
+}
+</code></pre>
+
+<h3>
+<a id="7ie9下的兼容代码" class="anchor" href="#7ie9%E4%B8%8B%E7%9A%84%E5%85%BC%E5%AE%B9%E4%BB%A3%E7%A0%81" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7.IE9下的兼容代码</h3>
+
+<pre><code>&lt;!--[if lt IE 9]&gt;
+&lt;script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"&gt;&lt;/script&gt;
+&lt;script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+</code></pre>
+
+<h3>
+<a id="8display-table-cell与大小不一定的元素的垂直居中" class="anchor" href="#8display-table-cell%E4%B8%8E%E5%A4%A7%E5%B0%8F%E4%B8%8D%E4%B8%80%E5%AE%9A%E7%9A%84%E5%85%83%E7%B4%A0%E7%9A%84%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8.display: table-cell;与大小不一定的元素的垂直居中</h3>
+
+<pre><code>/*这里的大小是根据高宽上限128像素图片设置的*/
+div {
+    display:table-cell;  /* 重点1 */
+    width:1em; 
+    height:1em; 
+    border:1px solid #beceeb; 
+    font-size:144px;
+    text-align:center;  /* 重点2 */
+    vertical-align:middle; /* 重点3 */
+} 
+div img{
+    vertical-align:middle; /* 重点4 */
+}
+</code></pre>
+
+<h3>
+<a id="9让英文同汉字一样自动换行" class="anchor" href="#9%E8%AE%A9%E8%8B%B1%E6%96%87%E5%90%8C%E6%B1%89%E5%AD%97%E4%B8%80%E6%A0%B7%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>9.让英文同汉字一样自动换行</h3>
+
+<p>因为很多时候我们没有注意到同样的盒子内部有时候输入汉字他能够自己折行，按照盒子大小自动换行，但是英文却不行，这个很常见，但是为了是自己有个记性，特写在此！ </p>
+
+<pre><code>word-break: break-all;
+</code></pre>
+
+<h3>
+<a id="10让图片或者文字垂直居中的方法vertical-align" class="anchor" href="#10%E8%AE%A9%E5%9B%BE%E7%89%87%E6%88%96%E8%80%85%E6%96%87%E5%AD%97%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95vertical-align" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10.让图片或者文字垂直居中的方法（vertical-align）</h3>
+
+<pre><code>html:
+&lt;p style="height:200px"&gt;&lt;img src=""&gt;&lt;i&gt;&lt;/i&gt;&lt;/p&gt;
+
+css:
+img { vertical-align: middle;}
+
+i {
+display: inline-block;      /* inline-block化 */
+width: 0;                   /* 0宽度100%高度的辅助元素 */
+height: 100%;
+vertical-align: middle;
+}
+</code></pre>
+
+<h3>
+<a id="11给input的placeholder文字设置色值" class="anchor" href="#11%E7%BB%99input%E7%9A%84placeholder%E6%96%87%E5%AD%97%E8%AE%BE%E7%BD%AE%E8%89%B2%E5%80%BC" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>11.给input的placeholder文字设置色值</h3>
+
+<p>IE浏览器下的写法：</p>
+
+<pre><code>:-ms-input-placeholder {
+    color: mediumvioletred;
+    text-indent: 5px;
+}
+</code></pre>
+
+<p>Chrome浏览器：</p>
+
+<pre><code>::-webkit-input-placeholder {
+    color: mediumvioletred;
+    text-indent: 5px;
+}
+</code></pre>
+
+<p>FireFox浏览器：FireFox浏览器下占位符文字的透明度默认是0.54，因此需要强制opacity: 1让placeholder值颜色与IE/Chrome一致。</p>
+
+<pre><code>::-moz-placeholder {
+    color: mediumvioletred;
+    text-indent: 5px; /* 不起作用 */
+    opacity: 1!important;
+}
+</code></pre>
+
+<h3>
+<a id="12伪元素-ms-value" class="anchor" href="#12%E4%BC%AA%E5%85%83%E7%B4%A0-ms-value" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>12.伪元素::-ms-value</h3>
+
+<p>可以更改文本框(如type=text, type=password等)以及下拉框(select)的样式。例如下面的HTML代码：</p>
+
+<pre><code>::-ms-value {
+    padding: 4px;
+    color: #34538b;
+    border: 1px solid #a0b3d6;
+    background-color: #f0f3f9;
+}
+</code></pre>
+
+<h3>
+<a id="13display-inline-block-引起的间隙问题" class="anchor" href="#13display-inline-block-%E5%BC%95%E8%B5%B7%E7%9A%84%E9%97%B4%E9%9A%99%E9%97%AE%E9%A2%98" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>13.display: inline-block 引起的间隙问题</h3>
+
+<p>现在我们布局列表的时候很少用到float浮动了，因为浮动会让盒子的高度塌陷，随之会出现很多令人头痛的问题，现在我们大概都使用display： inline-block比较多，但是这个又会因为换行导致元素块与块之间会产生一定的间隙</p>
+
+<p>1.处理这个间隙我们一般的方法是用<strong>font-size：0；</strong></p>
+
+<p>2.但是有时会因为就兼容性失效，那就在介绍一个别的方法，就是<strong>letter-spacing： -4px；</strong>这个兼容性较之稍微好一点；</p>
+
+<h3>
+<a id="14不同尺寸的icon小图标自动居中最佳方案" class="anchor" href="#14%E4%B8%8D%E5%90%8C%E5%B0%BA%E5%AF%B8%E7%9A%84icon%E5%B0%8F%E5%9B%BE%E6%A0%87%E8%87%AA%E5%8A%A8%E5%B1%85%E4%B8%AD%E6%9C%80%E4%BD%B3%E6%96%B9%E6%A1%88" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>14.不同尺寸的icon小图标自动居中最佳方案</h3>
+
+<p>这些小的问题解决方案都是摘自张鑫旭大大<a href="http://www.zhangxinxu.com">http://www.zhangxinxu.com</a>的博客，有兴趣的同学可以自己到他的网站中查看，说不定自己也没能收货很多意想不到的东西哦~</p>
+
+<p>这里只是展示主要代码，详细案例在HTML网页中有实例：</p>
+
+<pre><code>.icon {
+    display: inline-block;
+    width: 20px;    
+    height: 20px;
+    background: url("image/icon.png") no-repeat center;
+    white-space: nowrap;
+    letter-spacing: -1em;
+    text-indent: -99em;
+    color: transparent;
+    }
+&lt;!-- 这个很重要，是决定icon居中的核心 --&gt;
+.icon:before {  content: '\3000';   }       
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/eva1963/font-end-issues">Font-end-issues</a> is maintained by <a href="https://github.com/eva1963">eva1963</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
