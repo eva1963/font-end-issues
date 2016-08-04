@@ -212,13 +212,9 @@ FireFox浏览器：FireFox浏览器下占位符文字的透明度默认是0.54�
        1. 透明； 
        2. 宽度正好跟中文正好是1:2和1:1的关系
 于是，一些中文排版对齐什么的，直接就可以使用这两个空格调节，如：
-
-<ul>  
-    <li class="li">姓  名：<input type="text" /></li>  
-    <li class="li">手 机 号：<input type="text" /></li>  
-    <li class="li">电子邮箱：<input type="text" /></li>  
-</ul>  
+![Mou icon](img/8.jpg)
+ 
 结果轻松实现了2字/3字/4字中文的等宽两端对齐效果了
-	
+![Mou icon](img/22.png)	
 
 
