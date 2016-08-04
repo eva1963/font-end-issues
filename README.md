@@ -217,4 +217,7 @@ FireFox浏览器：FireFox浏览器下占位符文字的透明度默认是0.54�
 结果轻松实现了2字/3字/4字中文的等宽两端对齐效果了
 ![Mou icon](img/22.png)	
 
+###16、解决position的fixed属性在搜狗浏览器中的兼容问题
+![Mou icon](img/clipboard.png)	
+
 
