@@ -206,6 +206,19 @@ FireFox浏览器：FireFox浏览器下占位符文字的透明度默认是0.54�
 	<!-- 这个很重要，是决定icon居中的核心 -->
 	.icon:before {	content: '\3000';	}		
 
+###15、关于空格符 &ensp;和&emsp;
+
+其中的&ensp;和&emsp;，由于具有某一超赞的特性，使其可以登上web届的舞台！什么特性呢？如上表加粗展示
+       1. 透明； 
+       2. 宽度正好跟中文正好是1:2和1:1的关系
+于是，一些中文排版对齐什么的，直接就可以使用这两个空格调节，如：
+
+<ul>  
+    <li class="li">姓  名：<input type="text" /></li>  
+    <li class="li">手 机 号：<input type="text" /></li>  
+    <li class="li">电子邮箱：<input type="text" /></li>  
+</ul>  
+结果轻松实现了2字/3字/4字中文的等宽两端对齐效果了
 	
 
 
