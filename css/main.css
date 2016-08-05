@@ -156,6 +156,13 @@ h1,h2,h3,h4,h5 {
     width: 100%;
     padding: 20px;
 }
+.wrapper h3 {
+    font-size: 18px;
+    font-weight: 500;
+}
+.wrapper h3 b {
+    color: #c60012;
+}
 
 .left {
     width: 600px;
@@ -168,6 +175,7 @@ h1,h2,h3,h4,h5 {
     height: 120px;
     visibility: hidden;
     background: #000;
+    position: relative;
 
     /* 隐藏元素的方法 */
     /*zoom: 0.003;*/
@@ -263,4 +271,103 @@ select {
 }
 .ui_dialog_remind {
     word-wrap: break-word;
+}
+
+
+
+/* 水平滚动的div+a布局 */
+    .tab-nav {
+        width: 414px;
+        white-space: nowrap;
+        font-size: 0;
+        overflow-x: scroll;
+        border-bottom: 1px solid red;
+    }
+
+    .tab-nav a {
+        display: inline-block;
+        vertical-align: top;
+        padding: 10px;
+        margin: 0 10px;
+        font-size: 14px;
+        background: #333;
+        border-bottom: 2px solid #337ab7;
+    }
+
+/* 水平滚动的ul+li布局 */
+    .hide-nav {
+        width: 414px;
+        overflow-x: scroll;
+        white-space: nowrap;
+        border-bottom: 1px solid red;
+    }
+    .hide-nav .ul-nav {
+        width: 100%;
+        font-size: 0;
+    }
+    .hide-nav .ul-nav li {
+        display: inline-block;
+        padding: 10px;
+        background: #333;
+        border-bottom: 2px solid #337ab7;
+        font-size: 14px;
+        margin: 0 10px;
+        color: #337ab7;
+    }
+
+
+#content  {
+    padding: 20px 10px;
+    color: #fff;
+    background: rgba(0,0,0,0.8);
+}
+#content input {
+    display: block;
+    margin-bottom: 10px;
+    border: 1px solid #fefefe;
+}
+.focused {
+    background: #abcdef;
+}
+
+/* 张鑫旭轮播图学习 */
+.zxx_img_left{width:156px; float:left; margin:0 0 30px 0; padding:10px 0; text-align:center; border:1px solid #34538b; list-style-type:none;}
+.zxx_img_left li{padding-top:14px; padding-bottom:5px;}
+.zxx_img_left li a img{padding:1px; border:2px solid white;}
+.zxx_img_left li a.on img{border-color:#0CF;}
+.zxx_img_right{width:522px; margin-left:10px; margin-bottom:30px; float:left; border:1px solid #34538b; height:392px; position:relative; overflow:hidden;}
+.zxx_img_move{width:522px; padding:0; margin:0; position:absolute; left:5px; top:0px; list-style:none; font-size:0;}
+.zxx_img_move li{height:390px; text-align:center;}
+.zxx_img_move li img{vertical-align:middle;}
+.zxx_img_move li span{display:inline-block; width:1px; height:100%; vertical-align:middle;}
+.zxx_ad{float:left; margin-left:15px;}
+.zxx_bottom{padding:40px 0; margin-top:20px; clear:both; text-align:center; font-size:12px;}
+a{color:#34538b; text-decoration:underline;}
+a:hover{color:#f30;}
+
+/* jQuery学习之样式 */
+.usbCategoryBox .showmore {
+    width: 200px;
+    text-align: center;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin: 20px auto 0;
+}
+.usbCategoryBox ul li {
+    display: inline-block;
+    padding: 10px 10px 0 0;
+}
+.usbCategoryBox ul li a {
+    color: #333;
+    text-decoration: none;
+
+}
+.usbCategoryBox ul li i {
+    font-style: normal;
+
+}
+.promoted {
+    color: #008cbf;
 }

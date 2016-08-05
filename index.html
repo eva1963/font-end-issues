@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="css/animate.css"/>
     <link rel="stylesheet" href="css/main.css"/>
 
+    <script src="js/plugin/jquery-1.11.3.min.js"></script>
     <!--<script src="js/plugin/sea.js"></script>-->
+    <script src="js/index.js"></script>
 </head>
 <body>
-
-
 <!-- css三角，用到一个drop-shadow阴影效果，但是目前浏览器支持很差 -->
 <div class="container">
     <h2>css三角，用到一个drop-shadow阴影效果，但是目前浏览器支持很差</h2>
@@ -33,6 +33,7 @@
 <div class="font">
     <h2>解决字体上下有缝隙的问题</h2>
 </div>
+
 
 <div class="overflow">
     <div class="overflow-wrap">
@@ -61,6 +62,7 @@
     </div>
 </div>
 
+
 <!-- 横向滚动的案例，重点是display: inline-block;,white-space: nowrap;和vertical-align:top;这3个属性 -->
 <div class="container">
     <h3> 横向滚动的案例，重点是display: inline-block;,white-space: nowrap;和vertical-align:top;这3个属性</h3>
@@ -75,11 +77,14 @@
     </ul>
 </div>
 
+
 <div class="container">
 
     <div class="left">
+
+        <!-- overflow的研究+clip切片 -->
         <div class="wrapper">
-            <h3>overflow的研究</h3>
+            <h3>overflow的研究+clip切片</h3>
             <div class="overflow-father">
                 <div class="overflow-child"></div>
             </div>
@@ -165,6 +170,100 @@
                 </div>
             </form>
         </div>
+
+
+        <!-- 锋利的jQuery&#45;&#45;表单练习 -->
+        <div class="wrapper">
+            <form id="form1" action="#">
+                可用元素：<input type="text" name="add" value="可用文本框"/><br/>
+                不可用元素：<input type="text" name="email" disabled value="不可用文本框"/><br/>
+                可用元素：<input type="text" name="che" value="可用文本框"/><br/>
+                不可用元素：<input type="text" name="name" disabled value="不可用文本框"/><br/>
+
+                多选框：<br/>
+                <input type="checkbox" name="newletter" value="test1"/>test1
+                <input type="checkbox" name="newletter" value="test2"/>test2
+                <input type="checkbox" name="newletter" value="test3"/>test3
+                <input type="checkbox" name="newletter" checked value="test4"/>test4
+                <input type="checkbox" name="newletter" value="test5"/>test5
+
+                <div></div>
+                <br/><br/>
+                下拉列表1：<br/>
+                <select name="test" multiple style="height: 100px;">
+                    <option value="1">浙江</option>
+                    <option value="2" selected>湖北</option>
+                    <option value="3">北京</option>
+                    <option value="4">天津</option>
+                    <option value="5">广州</option>
+                    <option value="6">湖南</option>
+                </select>
+                <br/><br/>
+                下拉列表2：<br/>
+                <select name="test">
+                    <option value="1">浙江</option>
+                    <option value="2" selected>湖北</option>
+                    <option value="3">北京</option>
+                    <option value="4">天津</option>
+                    <option value="5">广州</option>
+                    <option value="6">湖南</option>
+                </select>
+                <div></div>
+            </form>
+        </div>
+
+        <!-- jQuery学习之:odd :even -->
+        <div class="wrapper">
+            <h3>jQuery学习之 <b>:odd :even</b></h3>
+            <table id="tb">
+                <thead>
+                <tr>
+                    <td>12</td>
+                    <td>34</td>
+                    <td>34</td>
+                    <td>34</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>343434</td>
+                    <td>343233</td>
+                    <td>343233</td>
+                    <td>343233</td>
+                </tr>
+
+                <tr>
+                    <td>343434</td>
+                    <td>343233</td>
+                    <td>343233</td>
+                    <td>343233</td>
+                </tr>
+
+                <tr>
+                    <td>343434</td>
+                    <td>343233</td>
+                    <td>343233</td>
+                    <td>343233</td>
+                </tr>
+
+                <tr>
+                    <td>343434</td>
+                    <td>343233</td>
+                    <td>343233</td>
+                    <td>343233</td>
+                </tr>
+
+                <tr>
+                    <td>343434</td>
+                    <td>343233</td>
+                    <td>343233</td>
+                    <td>343233</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
     </div>
 
     <div class="right">
@@ -176,165 +275,105 @@
             <div class="icon-box three"><i class="icon"></i><a href="javascript:;">测试</a></div>
             <div class="icon-box four"><i class="icon"></i><a href="javascript:;">测试</a></div>
         </div>
+
+        <div class="wrapper">
+            <h3>水平滚动的div+a布局</h3>
+            <div class="tab-nav">
+                <a href="#" class="nav">第一层</a>
+                <a href="#" class="nav">第二层</a>
+                <a href="#" class="nav">第三层</a>
+                <a href="#" class="nav">第四层</a>
+                <a href="#" class="nav">第⑤层</a>
+                <a href="#" class="nav">第一层</a>
+                <a href="#" class="nav">第二层</a>
+                <a href="#" class="nav">第三层</a>
+                <a href="#" class="nav">第④层</a>
+                <a href="#" class="nav">第⑤层</a>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <h3>水平滚动的ul+li布局   PS:相比之下，这种方法明显比div+a繁琐</h3>
+            <div class="hide-nav">
+                <ul class="ul-nav">
+                    <li class="tab">第一层</li>
+                    <li class="tab">第一层</li>
+                    <li class="tab">第一层</li>
+                    <li class="tab">第一层</li>
+                    <li class="tab">第一层</li>
+                    <li class="tab">第一层</li>
+                    <li class="tab">第一层</li>
+                    <li class="tab">第一层</li>
+                    <li class="tab">第一层</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- jQuery学习之:focus -->
+        <div class="wrapper">
+            <h3>jQuery学习之:focus</h3>
+            <div id="content">
+                <input type="text" class="name" tabindex="1"/>
+                <input type="text" class="name" tabindex="2"/>
+                <select name="select" id="select" tabindex="3">
+                    <option value="1">select Menu</option>
+                </select>
+                <div tabindex="4">div tabIndex</div>
+            </div>
+        </div>
+
+
+        <div class="wrapper">
+            <h3>jQuery方法之filter(),removeClass()</h3>
+            <div class="usbCategoryBox">
+                <ul>
+                    <li><a href="#">佳能</a><i>(30440)</i></li>
+                    <li><a href="#">佳能</a><i>(30440)</i></li>
+                    <li><a href="#">佳能</a><i>(30440)</i></li>
+                    <li><a href="#">佳能</a><i>(30440)</i></li>
+                    <li><a href="#">佳能</a><i>(30440)</i></li>
+                    <li><a href="#">佳能</a><i>(30440)</i></li>
+                    <li><a href="#">佳能</a><i>(30440)</i></li>
+                    <li><a href="#">佳能</a><i>(30440)</i></li>
+                    <li><a href="#">佳能</a><i>(30440)</i></li>
+                    <li><a href="#">佳能</a><i>(30440)</i></li>
+                    <li><a href="#">佳能</a><i>(30440)</i></li>
+                    <li><a href="#">佳能</a><i>(30440)</i></li>
+                    <li><a href="#">其他品牌相机</a><i>(30440)</i></li>
+                </ul>
+                <div class="showmore">
+                    <a href="javascript:;"><span title="123">显示全部品牌</span></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="wrapper">
+            <p><a href="#" class="tooltip" title="这是我的超链接提示">提示1</a></p>
+            <p><a href="#" class="tooltip" title="这是我的超链接提示">提示2</a></p>
+            <p><a href="#" title="这是我的超链接提示">提示3</a></p>
+            <p><a href="#" title="这是我的超链接提示">提示4</a></p>
+        </div>
+
     </div>
-
 </div>
+<script>
+    $('a.tooltip').mouseenter(function(e){
+        this.mytitle = this.title;
+        this.title = "";
+        var tooltip = "<div id='tooltip'>" +this.mytitle+ "</div>";
+        var x = 20;
+        var y = 10;
 
-<!--<script>-->
-
-    <!--window.seajs &&-->
-    <!--seajs.config({-->
-        <!--base: "//mp.gtimg.cn/old_mp/assets/js",-->
-        <!--map: [[/^(.*\.(?:css|js))(.*)$/i, '$1?v=' + Math.random()]],-->
-        <!--alias: {-->
-            <!--jquery: 'plugin/jquery'-->
-        <!--}-->
-    <!--}).use(['jquery'], function() {-->
-        <!--var fnMoney = function() {-->
-            <!--// 单价-->
-            <!--var unitPrice = 0,-->
-            <!--// 数量-->
-                    <!--number = 1,-->
-            <!--// 运费-->
-                    <!--freight = 0,-->
-            <!--// 运费险-->
-                    <!--insurance = 0;-->
-
-            <!--// 真实值-->
-            <!--radioTypes.each(function() {-->
-                <!--if ($(this).prop('checked')) {-->
-                    <!--unitPrice = this.value;-->
-                <!--}-->
-            <!--});-->
-
-            <!--number = elNumber.val();-->
-
-            <!--freight = elCity.val() || 0;-->
-
-            <!--if (elInsur.prop('checked')) {-->
-                <!--insurance = elInsur.val();-->
-            <!--}-->
-
-            <!--var total = unitPrice * number + freight*1 + insurance*1;-->
-
-            <!--if (unitPrice == 0) {-->
-                <!--total = 0;-->
-            <!--}-->
-
-            <!--elTotal.html(total || 0);-->
-
-        <!--};-->
-
-        <!--var fnSubmit = function() {-->
-            <!--alert('提交的数据是：' + elForm.serialize());-->
-        <!--};-->
-
-        <!--var radioTypes = $('input[name="type"]').click(function() {-->
-                    <!--$(this).parent().find('p').hide();-->
-                    <!--$('#' + this.id + 'P').show();-->
-                    <!--fnMoney();-->
-                <!--}),-->
-                <!--elNumber = $('#number').on('oninput' in document.body? 'input': 'change', fnMoney),-->
-                <!--elCity = $('#citySelect').change(function() {-->
-                    <!--var elPrice = $('#transPrice');-->
-                    <!--if (this.value) {-->
-                        <!--elPrice.html(this.value).parent().show();-->
-                    <!--} else {-->
-                        <!--elPrice.html(0).parent().hide();-->
-                    <!--}-->
-                    <!--fnMoney();-->
-                <!--}),-->
-                <!--elInsur = $('#checkInsur').click(fnMoney),-->
-                <!--elForm = $('#validateForm').submit(function(event) {-->
-                    <!--if (!$(this).attr('novalidate')) {-->
-                        <!--fnSubmit();-->
-                    <!--}-->
-                    <!--event.preventDefault();-->
-                <!--}),-->
-                <!--elTotal = $('#total');-->
-
-
-        <!--// 加载mpqq  也就是QQ公众号需要的脚本-->
-        <!--$('#excuteBtn').click(function() {-->
-            <!--if ($(this).hasClass('disabled')) return false;-->
-
-            <!--// 加载CSS-->
-            <!--var style = document.createElement('link');-->
-            <!--style.rel = 'stylesheet';-->
-            <!--style.href = '//mp.gtimg.cn/assetscom/theme/modern/common/ui.css';-->
-            <!--document.getElementsByTagName('head')[0].appendChild(style);-->
-
-            <!--// 加载JS-->
-            <!--seajs.use([-->
-                <!--'common/ui/Radio',-->
-                <!--'common/ui/Checkbox',-->
-                <!--'common/ui/Select',-->
-                <!--'common/ui/DateTime',-->
-                <!--'common/ui/Tips',-->
-                <!--'common/ui/Dialog',-->
-                <!--'common/ui/Validate'-->
-            <!--], function(Radio, Checkbox, Select, DateTime, Tips, Dialog, Validate) {-->
-                <!--// 单复选框和下拉初始化-->
-                <!--Radio.init();-->
-                <!--Checkbox.init();-->
-                <!--Select.init();-->
-
-                <!--// 日期-->
-                <!--new DateTime($('#achieveDate'));-->
-
-                <!--// 黑色tips初始化-->
-                <!--new Tips($('.ui_tips'));-->
-
-                <!--// 弹框-->
-                <!--window.alert = function(message) {-->
-                    <!--new Dialog().alert(message);-->
-                <!--};-->
-
-                <!--// 验证-->
-                <!--new Validate(elForm, fnSubmit);-->
-            <!--});-->
-
-            <!--elForm.addClass('loaded');-->
-
-            <!--$(this).html('加载和执行成功').addClass('disabled');-->
-        <!--});-->
-    <!--});-->
-
-    <!--// 加载CSS-->
-    <!--var style = document.createElement('link');-->
-    <!--style.rel = 'stylesheet';-->
-    <!--style.href = '//mp.gtimg.cn/assetscom/theme/modern/common/ui.css';-->
-    <!--document.getElementsByTagName('head')[0].appendChild(style);-->
-
-    <!--// 加载JS-->
-    <!--seajs.use([-->
-        <!--'common/ui/Radio',-->
-        <!--'common/ui/Checkbox',-->
-        <!--'common/ui/Select',-->
-        <!--'common/ui/DateTime',-->
-        <!--'common/ui/Tips',-->
-        <!--'common/ui/Dialog',-->
-        <!--'common/ui/Validate'-->
-    <!--], function(Radio, Checkbox, Select, DateTime, Tips, Dialog, Validate) {-->
-        <!--// 单复选框和下拉初始化-->
-        <!--Radio.init();-->
-        <!--Checkbox.init();-->
-        <!--Select.init();-->
-
-        <!--// 日期-->
-        <!--new DateTime($('#achieveDate'));-->
-
-        <!--// 黑色tips初始化-->
-        <!--new Tips($('.ui_tips'));-->
-
-        <!--// 弹框-->
-        <!--window.alert = function(message) {-->
-            <!--new Dialog().alert(message);-->
-        <!--};-->
-
-        <!--// 验证-->
-        <!--new Validate(elForm, fnSubmit);-->
-    <!--});-->
-<!--</script>-->
+        $('body').append(tooltip);
+        $('#tooltip').css({
+            "top": (e.pageY + y) + "px",
+            "left": (e.pageX + x) + "px"
+        }).show("fast");
+    }).mouseleave(function(){
+        this.title = this.mytitle;
+        $("#tooltip").remove();
+    });
+</script>
 </body>
 </html>
