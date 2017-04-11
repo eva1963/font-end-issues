@@ -171,7 +171,6 @@
             </form>
         </div>
 
-
         <!-- 锋利的jQuery&#45;&#45;表单练习 -->
         <div class="wrapper">
             <form id="form1" action="#">
@@ -355,15 +354,94 @@
             <p><a href="#" title="这是我的超链接提示">提示4</a></p>
         </div>
 
+        <!-- 利用border做menu的icon -->
+        <div class="wrapper">
+            <div class="border"></div>
+        </div>
+
+        <!-- 点击加载图片的+ -->
+        <div class="add"></div>
+
+        <!-- input.checkbox输入框大小 -->
+        <input type="checkbox" class="checkbox"/>
+
+        <div class="flex-container">
+            <div class="item item-1"><span>1</span></div>
+            <div class="item item-2"><span>2</span></div>
+            <div class="item item-3"><span><b>1234567</b></span></div>
+            <div class="item item-4"><span>4</span></div>
+            <div class="item item-5"><span>5</span></div>
+            <div class="item item-6"><span>6</span></div>
+            <div class="item item-7"><span>7</span></div>
+            <div class="item item-8"><span>8</span></div>
+            <div class="item item-9"><span>9</span></div>
+            <div class="item item-10"><span>10</span></div>
+            <div class="item item-11"><span>11</span></div>
+            <div class="item item-12"><span>12</span></div>
+        </div>
+
+
+        <div class="collection-sidebar">
+            <section class="buzz-widget">
+                <div class="widget-header"><h3>快讯</h3></div>
+                <ul class="buzz-widget-items ps-container ps-active-y">
+                    <li>
+                        <a href="#" class="buzz-widget-items_item">
+                            <h2 class="buzz-widget-items_item_title">被控侵犯32项专利 苹果回应称诺基亚沦为“专利流氓”</h2>
+                            <div class="buzz-widget-items_item_meta">19 分钟前</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="buzz-widget-items_item">
+                            <h2 class="buzz-widget-items_item_title">被控侵犯32项专利 苹果回应称诺基亚沦为“专利流氓”</h2>
+                            <div class="buzz-widget-items_item_meta">19 分钟前</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="buzz-widget-items_item">
+                            <h2 class="buzz-widget-items_item_title">被控侵犯32项专利 苹果回应称诺基亚沦为“专被控侵犯32项专利 苹果回应称诺基亚沦为“专利流氓”</h2>
+                            <div class="buzz-widget-items_item_meta">19 分钟前</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="buzz-widget-items_item">
+                            <h2 class="buzz-widget-items_item_title">被控侵犯32项专利 苹果回应称诺基亚沦为“专利流氓”</h2>
+                            <div class="buzz-widget-items_item_meta">19 分钟前</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="buzz-widget-items_item">
+                            <h2 class="buzz-widget-items_item_title">被控侵犯32项专利 苹果回应称诺基亚沦为“专利流氓”</h2>
+                            <div class="buzz-widget-items_item_meta">19 分钟前</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="buzz-widget-items_item">
+                            <h2 class="buzz-widget-items_item_title">被控侵犯32项专利 苹果回应称诺基亚沦为“专利流氓”</h2>
+                            <div class="buzz-widget-items_item_meta">19 分钟前</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="buzz-widget-items_item">
+                            <h2 class="buzz-widget-items_item_title">被控侵犯32项专利 苹果回应称诺基亚沦为“专利流氓”</h2>
+                            <div class="buzz-widget-items_item_meta">19 分钟前</div>
+                        </a>
+                    </li>
+                    <div class="ps-scrollbar-y-rail"><div class="ps-scrollbar-y"></div></div>
+
+                </ul>
+            </section>
+        </div>
     </div>
 </div>
 <script>
+    var x = 20;
+    var y = 10;
+
     $('a.tooltip').mouseenter(function(e){
         this.mytitle = this.title;
-        this.title = "";
-        var tooltip = "<div id='tooltip'>" +this.mytitle+ "</div>";
-        var x = 20;
-        var y = 10;
+        this.title = " ";
+        var tooltip = "<div id='tooltip'>" + this.mytitle + "</div>";
 
         $('body').append(tooltip);
         $('#tooltip').css({

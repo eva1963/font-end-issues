@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-hans">
+    <meta charset="UTF-8">
+    <title>测试页面</title>
+</head>
+<body>
+
+
+<ul id="test">
+    <li>li标签1</li>
+    <li>li标签2</li>
+    <li>li标签3</li>
+    <li>li标签4</li>
+    <li>li标签5</li>
+</ul>
+
+<script type="text/javascript">
+    //    面试题集锦：
+
+    //    1、下面这个ul，如何点击每一列的时候alert其index?（闭包）
+    //    var lis = document.getElementById("test").getElementsByTagName("li");
+    //    /* 第一种方法：*/
+    //    for(var i = 0; i< lis.length;i++) {
+    //        lis[i].index = i;
+    //        lis[i].onclick = function(){
+    //            console.log(this.index);
+    //        }
+    //    }
+    //    /*  第二种方法：  */
+    //    for(var i = 0; i< lis.length;i++) {
+    //        lis[i].onclick = (function(a){
+    //            return function () {
+    //                console.log(a);
+    //            }
+    //        })(i);
+    //    }
+
+    /* 继承，原型，setInterval
+     function Dog() {
+     this.wow = function() {
+     console.log('Wow');
+     };
+     this.yelp = function() {
+     this.wow();
+     };
+     }
+     function MadDog() {
+     this.yelp = function() {
+     var self = this;
+     setInterval(function() {
+     self.wow();
+     }, 5000);
+     }
+     }
+     MadDog.prototype = new Dog(); //MadDog继承Dog
+     var dog = new Dog();
+     console.log(dog.yelp());
+     var madDog = new MadDog();
+     console.log(madDog.yelp());
+     */
+    /*
+     冒泡排序
+     var ary = [1,2,5,0,4,6,3];
+     var temp = null;
+     function bubbleSort(ary){
+     var flag =false;
+
+     for(var i = 0;i < ary.length-1;i++) {
+     for(var j = 0;j < ary.length-1-i;j++) {
+     if(ary[j] > ary[j+1]) {
+     temp = ary[j + 1];
+     ary[j + 1] = ary[j];
+     ary[j] = temp;
+     flag = true;
+     }
+     }
+     if(flag) {
+     flag = false;
+     }
+     else {
+     break;
+     }
+     }
+     return ary;
+     }
+     var ary1 = [1,3,2,6,5,4];
+     console.log(bubbleSort(ary1));
+     */
+
+
+    /*
+     数组去重：键值对方法
+     var array = [1,2,3,2,3,4,1,5,3,6];
+     var obj = {};
+
+     for(var i =0; i < array.length; i++){
+        var cur = array[i];
+        if(obj[cur] == cur){                      //此条件成立说明数组中已经存在cur这一项了，即说明元素重复，应当删除此项
+            array[i] = array[array.length-1];   //用最后一个数组元素替代当前元素
+            array.length--;         //删除最后一个数组元素
+            // array.pop();          //也可以用这个方法删除
+             i--;  //解决数组塌陷问题
+            continue;
+        }
+        obj[cur] = cur;
+     }
+     console.log(array);
+     */
+
+/*
+    var ary1 =[1,2,3,4,5,6,7,8];
+//  var newAry = ary1.splice(2,5);
+    var newAry = ary1.slice(0,3);
+//  var newAry = ary1.splice(0);  //克隆数组，原来的数组被清除了
+//  var newAry = ary1.slice(0);   //克隆数组，原来的数组不变
+//  var newAry = ary1.concat();   //克隆数组，原来的数组不变
+
+    console.log(ary1.every(function (e) {
+        return e < 9;
+    }));
+*/
+
+/*  快速排序算法
+    var ary = [1,2,5,0,4,6,3];
+
+    function quickSort(ary){
+
+        if(ary.length < 1) {
+            return ary;
+        }  //如果忘记这个判断条件，将会无线循环下去； 报错：Maximum call stack size exceeded 栈溢出
+
+        var pointIndex = Math.floor(ary.length/2);  //  找到一个基准点
+        var pointValue = ary.splice(pointIndex,1)[0];  //  把基准点的这个值从数组中删除掉然后拿出来,待会用
+
+        var left = [];      //  新建一个数组left
+        var right = [];     //  新建一个数组right
+
+        for( var i = 0; i < ary.length; i++){
+            var cur = ary[i];
+            cur < pointValue ? left.push(cur) : right.push(cur);
+        }   //判断把小于基准点的值放到左边的数组中，大于基准点的值放到右边的数组中
+
+        // 这里用到递归运算，并返回数组
+        return quickSort(left).concat([pointValue],quickSort(right));
+    }
+
+    console.log(quickSort(ary));  //[0,1,2,3,4,5,6]
+ */
+
+/*    function sum(a,b){
+           return a+b;
+       }
+       sum;    //指的是当前函数本身
+       sum(1,2);   //执行当前函数
+       // 函数执行的目的，把当前的字符串ba变为js代码，然后让js代码从上到下依次执行
+       console.log(sum(1,2));
+
+    function fn(a){
+        var num = 123;
+        sum = num + a;
+        return sum;
+    }
+    var total = fn(3);
+    console.log(total);
+    */
+/*   函数的arguments
+    function sum(){
+        var total = null;
+
+        for(var i = 0; i < arguments.length; i++) {
+            var cur = Number(arguments[i]);
+
+//            对于非有效数字我们不再进行累加，防止最终结果是NaN
+//            if(isNaN(cur)){
+//                continue;
+//            }
+//            这是上面的第二种做法，意义相同
+            if(!isNaN(cur)){
+                total += cur;
+            }
+        }
+
+        return total;
+    }
+    var total = sum(10,10,20,30,"20","eva",20,"10");
+
+    console.log(total);
+ */
+
+
+
+
+    /* 创建一个原生的标签，添加到指定的元素当中 */
+    var oDiv = document.createElement("div");
+    oDiv.id ="div";
+    oDiv.style.width = "200px";
+    oDiv.style.height = "100px";
+    oDiv.style.border = "2px solid red";
+    document.body.appendChild(oDiv);   // appendChild是将元素添加到指定元素的末尾位置
+
+    var op = document.createElement("p");
+    op.id ="op";
+    op.style.width = "200px";
+    op.style.height = "100px";
+    op.style.border = "2px solid green";
+    oDiv.parentNode.insertBefore(op,oDiv); // insertBefore 把新的元素newEle添加到老的oldEle之前,insertBefore(newEle,OldEle)
+//    oDiv.parentNode.removeChild(op);  //删除方法在他们共同的父元素上才有
+
+    var op2 = op.cloneNode(true);  //克隆元素 true，把元素的子子孙孙都克隆了，默认为False
+    op2.style.background = "yellow";
+    document.body.appendChild(op2);
+
+    var pp = document.createElement("div");
+    pp.id ="pp";
+    pp.style.width = "200px";
+    pp.style.height = "100px";
+    pp.style.border = "2px solid pink";
+    op.parentNode.replaceChild(pp,op);  //注意，这里是操作被替换的元素标签op,而不是pp
+
+
+
+
+
+</script>
+</body>
+</html>

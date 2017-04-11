@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //     var ary = [1,1,1,2,2,44,55,3,3];
+    //   方式一
+    //     var arr = [];
+    //         for(var i = 0; i < ary.length; i++){
+    //               var cur = ary[i];
+    //              if(arr.indexOf(cur) === -1){
+    //                  arr.push(cur)
+    //              }
+    //         }
+    //    console.log(arr);
+    // 方式二
+    var obj = {};
+    //      obj[1] = 1 // {1};
+    //      obj[1]//
+    //      obj[1]//
+    //var ary = [1,1,1,2,2,44,55,3,3];
+    //     for(var i = 0; i < ary.length; i++){
+    //             var cur = ary[i];
+    //           if(obj[cur]){ // 第二轮的是 obj[1] = 1 // 说明该项重复了
+    //               ary.splice(i,1); // 数组塌陷 i = 1 [1,1,2,2,44,55,3,3];
+    //               i--;
+    //               continue;        //
+    //     }
+    //            obj[cur] = cur; //第一轮 {1:1}
+    //     }
+    //    console.log(ary);
+    var ary = [1,1,1,2,2,44,55,3,3];
+    for(var i = 0; i < ary.length; i++){
+        var cur = ary[i];
+        if(obj[cur]){ // 第二轮的是 obj[1] = 1 // 说明该项重复了
+//        ary.splice(i,1); // 数组塌陷 i = 1 [1,1,2,2,44,55,3,3];
+            ary[i] = ary[ary.length-1]; // 把最后一项挪到当前项  i = 1 [1,3,1,2,2,44,55,3];
+            ary.length--; // 删除最后一项
+            i--;
+            continue;        //
+        }
+        obj[cur] = cur; //第一轮 {1:1}
+    }
+    console.log(ary);
+</script>
+</body>
+</html>

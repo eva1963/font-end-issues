@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-hans">
+    <meta charset="UTF-8">
+    <title>String</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    var time = "2017-4-10 15:3:38";
+
+
+    function zero(value){
+        return value < 10 ? "0"+value : value;
+    }
+    function format(str){
+        var ary = str.split(" ");
+        var str1 = ary[0];
+        var str2 = ary[1];
+        var ary1 = str1.split("-");
+        var ary2 = str2.split(":");
+        return ary1[0]+"年"+zero(ary1[1])+"月"+zero(ary1[2])+"日 "+ary2[0]+"时"+ary2[1]+"分"+ary2[2]+"秒";
+    }
+    var a = format(time);
+    console.log(a);
+
+
+
+</script>
+
+</body>
+</html>

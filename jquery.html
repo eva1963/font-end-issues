@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>锋利的jQuery</title>
+
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/lib.css"/>
+    <link rel="stylesheet" href="css/variable.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="css/jQuery.css"/>
+
+    <script src="js/plugin/jquery-1.11.3.min.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+
+<!-- 卡通漫画 -->
+<div class="container">
+    <div class="v_show">
+        <div class="v_caption">
+            <h2 class="cartoon" title="卡通漫画">卡通漫画</h2>
+            <div class="highlight_tip">
+                <span class="current">1</span><span>2</span><span>3</span>
+            </div>
+            <div class="change_btn">
+                <span class="prev">上一页</span>
+                <span class="next">下一页</span>
+            </div>
+            <em><a href="#">更多</a></em>
+        </div>
+
+        <div class="v_content">
+            <div class="v_content_list">
+                <ul>
+                    <li><a href="#"><img src="img/pic.jpg" alt="海贼王"/></a><h4><a href="#">海贼王</a></h4><span>播放：<em>28.276</em></span></li>
+                    <li><a href="#"><img src="img/pic1.jpg" alt="龙珠"/></a><h4><a href="#">龙珠</a></h4><span>播放：<em>28.276</em></span></li>
+                    <li><a href="#"><img src="img/pic.jpg" alt="海贼王"/></a><h4><a href="#">海贼王</a></h4><span>播放：<em>28.276</em></span></li>
+                    <li><a href="#"><img src="img/pic1.jpg" alt="龙珠"/></a><h4><a href="#">龙珠</a></h4><span>播放：<em>28.276</em></span></li>
+                    <li><a href="#"><img src="img/pic.jpg" alt="海贼王"/></a><h4><a href="#">海贼王</a></h4><span>播放：<em>28.276</em></span></li>
+                    <li><a href="#"><img src="img/pic1.jpg" alt="龙珠"/></a><h4><a href="#">龙珠</a></h4><span>播放：<em>28.276</em></span></li>
+                    <li><a href="#"><img src="img/pic.jpg" alt="海贼王"/></a><h4><a href="#">海贼王</a></h4><span>播放：<em>28.276</em></span></li>
+                    <li><a href="#"><img src="img/pic1.jpg" alt="龙珠"/></a><h4><a href="#">龙珠</a></h4><span>播放：<em>28.276</em></span></li>
+                    <li><a href="#"><img src="img/pic.jpg" alt="海贼王"/></a><h4><a href="#">海贼王</a></h4><span>播放：<em>28.276</em></span></li>
+                    <li><a href="#"><img src="img/pic1.jpg" alt="龙珠"/></a><h4><a href="#">龙珠</a></h4><span>播放：<em>28.276</em></span></li>
+                    <li><a href="#"><img src="img/pic.jpg" alt="海贼王"/></a><h4><a href="#">海贼王</a></h4><span>播放：<em>28.276</em></span></li>
+                    <li><a href="#"><img src="img/pic1.jpg" alt="龙珠"/></a><h4><a href="#">龙珠</a></h4><span>播放：<em>28.276</em></span></li>
+                    <li><a href="#"><img src="img/pic2.jpg" alt="海贼王"/></a><h4><a href="#">海贼王</a></h4><span>播放：<em>28.27</em></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    var page = 1;
+    var i = 4;
+
+    $('span.next').click(function(){
+        var $parent = $(this).parents("div.v_show");
+        var $v_show = $parent.find("div.v_content_list");
+        var $v_content = $parent.find("div.v_content");
+
+        var v_width = $v_content.width();
+        var len = $v_show.find("li").length;
+        var page_count = Math.ceil(len / i);
+
+        if(page == page_count){
+            $v_show.stop().animate({left: '0px'},'slow');
+
+            page =1;
+        }
+        else {
+            $v_show.stop().animate({left: '-='+v_width},'slow');
+            page++;
+        }
+
+        $parent.find('span').eq(page-1).addClass('current').siblings().removeClass('current');
+    });
+</script>
+
+</body>
+</html>

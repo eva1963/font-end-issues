@@ -1,0 +1,89 @@
+.v_show {
+    width: 700px;
+    margin: 20px auto;
+    border: 1px solid #e2e2e2;
+    overflow: hidden;
+}
+
+.v_show .v_caption {
+    background: #f6f6f6;
+    line-height: 30px;
+    overflow: hidden;
+}
+.v_show .v_caption .cartoon {
+    float: left;
+    padding: 0 10px;
+    color: #333;
+}
+.v_show .v_caption .highlight_tip {
+    float: left;
+    padding-top: 12px;
+}
+.v_show .v_caption .highlight_tip span {
+    float: left;
+    display: block;
+    text-indent: -999px;
+    width: 8px;
+    height: 8px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin-left: 5px;
+    background: #fff;
+}
+.v_show .v_caption .highlight_tip .current {
+    background: red;
+}
+.v_show .v_caption .change_btn {
+    float: left;
+    padding: 0 0 0 30px;
+}
+.v_show .v_caption em {
+    float: right;
+    padding-right: 10px;
+    font-style: normal;
+}
+.v_show .v_caption em a {
+    color: #333;
+}
+
+.v_show .v_content {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+.v_show .v_content .v_content_list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+.v_show .v_content .v_content_list ul li {
+    float: left;
+    width: 30.459%;
+    height: 200px;
+    padding: 0 10px;
+}
+.v_show .v_content .v_content_list ul li a {
+    display: block;
+}
+.v_show .v_content .v_content_list ul li a img {
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+}
+.v_show .v_content .v_content_list ul li h4 {
+    width: 100%;
+    line-height: 40px;
+}
+.v_show .v_content .v_content_list ul li span {
+    width: 100%;
+    line-height: 20px;
+}
+.v_show .v_content .v_content_list ul li h4 a {
+    display: block;
+}

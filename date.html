@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-hans">
+    <meta charset="UTF-8">
+    <title>Date</title>
+</head>
+<body>
+<!-- 倒计时的效果 -->
+
+
+<script type="text/javascript">
+    var tarTime = new Date("2015/5/24 17:59:59");
+    var nowTime = new Date();
+
+    var year = nowTime.getFullYear();
+    var month = nowTime.getMonth()+1;
+    var day = nowTime.getDate();
+    var week = nowTime.getDay();
+    var hours = nowTime.getHours();
+    var Minutes = nowTime.getMinutes();
+    var seconds = nowTime.getSeconds();
+    var mlSeconds = nowTime.getMilliseconds();
+
+    var nowSpan = nowTime.getTime();
+    var tarSpan = tarTime.getTime();
+
+</script>
+
+
+
+</body>
+</html>
