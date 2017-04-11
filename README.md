@@ -205,8 +205,71 @@ FireFox浏览器：FireFox浏览器下占位符文字的透明度默认是0.54�
 		}
 	<!-- 这个很重要，是决定icon居中的核心 -->
 	.icon:before {	content: '\3000';	}		
+  
+###14. 利用flex布局，使内容部分高度为100%
+最近面试问到一个问题，想到就记下来吧！
+实现一个页面，header =30px,footer = 30px,中间的container部分高度100%，用flex布局如何实现？
 
-###15、关于空格符\&ensp;和\&emsp;
+实现方法：
+1.	首先要保证html,和body的高度是100%
+2.	父元素.wrapper的高度设置为100%，如下：
+	height: 100%;
+ 	display: flex;
+  	flex-direction: column;
+
+3. 子元素header，footer的高度，如：
+	height: 30px;
+
+4. 子元素container的属性设置为 flex: 2;
+即可实现
+
+
+###15.怎么让Chrome支持小于12px 的文字？
+	1、用图片：如果是内容固定不变情况下，使用将小于12px文字内容切出做图片，这样不影响兼容也不影响美观。
+	2、使用12px及12px以上字体大小：为了兼容各大主流浏览器，建议设计美工图时候设置大于或等于12px的字体大小，如果是接单的这个时候就需要给客户讲解小于12px浏览器不兼容等事宜。
+	3、继续使用小于12px字体大小样式设置：如果不考虑chrome可以不用考虑兼容，同时在设置小于12px对象设置-webkit-text-size-adjust:none，做到最大兼容考虑。
+	4、使用12px以上字体：为了兼容、为了代码更简单 从新考虑权重下兼容性。
+
+###16.让页面里的字体变清晰，变细用CSS怎么做？
+	-webkit-font-smoothing: antialiased;
+
+###17.经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用hack的技巧 ？
+
+* png24位的图片在iE6浏览器上出现背景，解决方案是做成PNG8.
+* 浏览器默认的margin和padding不同。解决方案是加一个全局的*{margin:0;padding:0;}来统一。
+* IE6双边距bug:块属性标签float后，又有横行的margin情况下，在ie6显示margin比设置的大。
+    浮动ie产生的双倍距离 #box{ float:left; width:10px; margin:0 0 0 100px;}
+
+    这种情况之下IE会产生20px的距离，解决方案是在float的标签样式控制中加入 ——_display:inline;将其转化为行内属性。(_这个符号只有ie6会识别)
+
+    渐进识别的方式，从总体中逐渐排除局部。
+
+    首先，巧妙的使用“\9”这一标记，将IE游览器从所有情况中分离出来。
+    接着，再次使用“+”将IE8和IE7、IE6分离开来，这样IE8已经独立识别。
+    css
+            .bb{
+                background-color:red;/*所有识别*/
+             background-color:#00deff\9; /*IE6、7、8识别*/
+             +background-color:#a200ff;/*IE6、7识别*/
+             _background-color:#1e0bd1;/*IE6识别*/
+            }
+
+  *  IE下,可以使用获取常规属性的方法来获取自定义属性,
+	 也可以使用getAttribute()获取自定义属性;
+	 Firefox下,只能使用getAttribute()获取自定义属性。
+	 解决方法:统一通过getAttribute()获取自定义属性。
+
+  *  IE下,even对象有x,y属性,但是没有pageX,pageY属性;
+	 Firefox下,event对象有pageX,pageY属性,但是没有x,y属性。
+
+  *  解决方法：（条件注释）缺点是在IE浏览器下可能会增加额外的HTTP请求数。
+
+  *  Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示,
+	 可通过加入 CSS 属性 -webkit-text-size-adjust: none; 解决。
+超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序:
+  	L-V-H-A :  a:link {} a:visited {} a:hover {} a:active {}
+	
+###18、关于空格符\&ensp;和\&emsp;
 
 其中的\&ensp;和\&emsp;由于具有某一超赞的特性，使其可以登上web届的舞台！什么特性呢？如上表加粗展示
        1. 透明； 
@@ -218,6 +281,6 @@ FireFox浏览器：FireFox浏览器下占位符文字的透明度默认是0.54�
 ![Mou icon](img/22.png)	
 
 ###16、解决position的fixed属性在搜狗浏览器中的兼容问题
-![Mou icon](img/clipboard.png)	
+![Mou icon](img/clipboard.png)
 
 

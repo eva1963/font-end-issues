@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-hans">
+    <meta charset="UTF-8">
+    <title>Math</title>
+    <style type="text/css">
+        #div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #e2e2e2;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+
+<div id="div" class="class"></div>
+
+<script type="text/javascript">
+    var oDiv = document.getElementById("div");
+//    不能获取到width，只能获取到行内样式
+    console.log(oDiv.style.width);
+
+    /* 随机数获取 */
+    function getRandom(n,m){
+        n = Number(n);
+        m = Number(m);
+        if(isNaN(n) || isNaN(m)){
+            return Math.random();
+        }
+        var temp = null;
+        if(n > m ) {
+            temp = n;
+            n = m;
+            m = temp;
+        }
+        return Math.round(Math.random()*(m-n)+n);
+    }
+    var ary = [];
+    for(var i = 0; i < 4;i++) {
+        ary.push(getRandom(0,10));
+    }
+
+
+//    如何实现不重复的随机数？没做出来
+//    console.log(ary);
+
+
+</script>
+</body>
+</html>

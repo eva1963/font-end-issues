@@ -1,10 +1,19 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 html {
     line-height: 1.5;
     font-size: 14px;
+}
+@font-face {
+    font-family: 'iconfont';  /* project id 88004 */
+    src: url('//at.alicdn.com/t/font_ia74pl3qlqcqsemi.eot');
+    src: url('//at.alicdn.com/t/font_ia74pl3qlqcqsemi.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_ia74pl3qlqcqsemi.woff') format('woff'),
+    url('//at.alicdn.com/t/font_ia74pl3qlqcqsemi.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_ia74pl3qlqcqsemi.svg#iconfont') format('svg');
 }
 
 .container {
@@ -15,7 +24,19 @@ html {
 h1,h2,h3,h4,h5 {
     margin: 20px 0;
 }
-
+/* 滚动条的样式设置 */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.3);
+    border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 6px;
+}
 
 /* css写三角 */
 .box {
@@ -156,6 +177,13 @@ h1,h2,h3,h4,h5 {
     width: 100%;
     padding: 20px;
 }
+.wrapper h3 {
+    font-size: 18px;
+    font-weight: 500;
+}
+.wrapper h3 b {
+    color: #c60012;
+}
 
 .left {
     width: 600px;
@@ -168,6 +196,7 @@ h1,h2,h3,h4,h5 {
     height: 120px;
     visibility: hidden;
     background: #000;
+    position: relative;
 
     /* 隐藏元素的方法 */
     /*zoom: 0.003;*/
@@ -263,4 +292,253 @@ select {
 }
 .ui_dialog_remind {
     word-wrap: break-word;
+}
+
+
+
+/* 水平滚动的div+a布局 */
+    .tab-nav {
+        width: 414px;
+        white-space: nowrap;
+        font-size: 0;
+        overflow-x: scroll;
+        border-bottom: 1px solid red;
+    }
+
+    .tab-nav a {
+        display: inline-block;
+        vertical-align: top;
+        padding: 10px;
+        margin: 0 10px;
+        font-size: 14px;
+        background: #333;
+        border-bottom: 2px solid #337ab7;
+    }
+
+/* 水平滚动的ul+li布局 */
+    .hide-nav {
+        width: 414px;
+        overflow-x: scroll;
+        white-space: nowrap;
+        border-bottom: 1px solid red;
+    }
+    .hide-nav .ul-nav {
+        width: 100%;
+        font-size: 0;
+    }
+    .hide-nav .ul-nav li {
+        display: inline-block;
+        padding: 10px;
+        background: #333;
+        border-bottom: 2px solid #337ab7;
+        font-size: 14px;
+        margin: 0 10px;
+        color: #337ab7;
+    }
+
+
+#content  {
+    padding: 20px 10px;
+    color: #fff;
+    background: rgba(0,0,0,0.8);
+}
+#content input {
+    display: block;
+    margin-bottom: 10px;
+    border: 1px solid #fefefe;
+}
+.focused {
+    background: #abcdef;
+}
+
+/* 张鑫旭轮播图学习 */
+.zxx_img_left{width:156px; float:left; margin:0 0 30px 0; padding:10px 0; text-align:center; border:1px solid #34538b; list-style-type:none;}
+.zxx_img_left li{padding-top:14px; padding-bottom:5px;}
+.zxx_img_left li a img{padding:1px; border:2px solid white;}
+.zxx_img_left li a.on img{border-color:#0CF;}
+.zxx_img_right{width:522px; margin-left:10px; margin-bottom:30px; float:left; border:1px solid #34538b; height:392px; position:relative; overflow:hidden;}
+.zxx_img_move{width:522px; padding:0; margin:0; position:absolute; left:5px; top:0px; list-style:none; font-size:0;}
+.zxx_img_move li{height:390px; text-align:center;}
+.zxx_img_move li img{vertical-align:middle;}
+.zxx_img_move li span{display:inline-block; width:1px; height:100%; vertical-align:middle;}
+.zxx_ad{float:left; margin-left:15px;}
+.zxx_bottom{padding:40px 0; margin-top:20px; clear:both; text-align:center; font-size:12px;}
+a{color:#34538b; text-decoration:underline;}
+a:hover{color:#f30;}
+
+/* jQuery学习之样式 */
+.usbCategoryBox .showmore {
+    width: 200px;
+    text-align: center;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin: 20px auto 0;
+}
+.usbCategoryBox ul li {
+    display: inline-block;
+    padding: 10px 10px 0 0;
+}
+.usbCategoryBox ul li a {
+    color: #333;
+    text-decoration: none;
+
+}
+.usbCategoryBox ul li i {
+    font-style: normal;
+
+}
+.promoted {
+    color: #008cbf;
+}
+
+
+/* 简易菜单icon */
+.border {
+    width: 120px;
+    height: 20px;
+    border-top: 60px double #000;
+    border-bottom: 20px solid #000;
+}
+
+
+/* 点击加载图片的+ */
+.add {
+    position: relative;
+    color: #ccc;
+    border: 1px solid;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: color .25s;
+}
+.add:before {
+    position: absolute;
+    top: 45px;
+    left: 10px;
+    content: '';
+    width: 80px;
+    height: 10px;
+    border-top: 10px solid;
+}
+.add:after {
+    position: absolute;
+    top: 10px;
+    left: 45px;
+    content: '';
+    width: 80px;
+    height: 80px;
+    border-left: 10px solid;
+}
+.add:hover {
+    color: red;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    /*border: 2px solid transparent;*/
+    border: none;
+    /* 这个可以模拟边框border效果 */
+    -webkit-box-shadow: inset 0 1px,inset 1px 0,inset -1px 0, inset 0 -1px;
+    -moz-box-shadow: inset 0 1px,inset 1px 0,inset -1px 0, inset 0 -1px;
+    box-shadow: inset 0 1px,inset 1px 0,inset -1px 0, inset 0 -1px;
+    background-color: #fff;
+    background-clip: content-box;
+    color: #ccc;
+}
+
+.collection-sidebar {
+    width: 268px;
+    overflow: hidden;
+}
+.buzz-widget {
+    width: 100%;
+    height: 100%;
+    color: #333;
+    border: 1px solid rgba(0,0,0,.3);
+    border-top: 4px solid #333;
+    background: #fff;
+}
+.buzz-widget .widget-header {
+    padding: 18px 15px;
+}
+.buzz-widget .widget-header h3 {
+     height: 18px;
+     line-height: 18px;
+     border-left: 4px solid #EF2F11;
+     padding-left: 8px;
+     font-size: 1.8rem;
+     margin: 0;
+     font-weight: 400;
+ }
+.buzz-widget .buzz-widget-items {
+    position: relative;
+    height: 400px;
+    padding: 0 15px;
+    overflow-y: scroll;
+}
+.buzz-widget .buzz-widget-items li {
+    overflow: hidden;
+}
+.buzz-widget .buzz-widget-items .buzz-widget-items_item {
+    display: block;
+    margin-bottom: 20px;
+    position: relative;
+    text-decoration: none;
+}
+.buzz-widget-items_item_title {
+    padding: 0;
+    margin: 0 0 7px;
+    color: #333;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18px;
+}
+.buzz-widget-items_item_meta {
+    color: #b3b3b3;
+    font-size: 12px;
+    line-height: 12px;
+}
+.ps-container>.ps-scrollbar-y-rail {
+    height: 400px;
+    top: 66px;
+     display: none;
+     position: absolute;
+     border-radius: 4px;
+     opacity: 0;
+     -webkit-transition: background-color .2s linear,opacity .2s linear;
+     transition: background-color .2s linear,opacity .2s linear;
+     right: 3px;
+     width: 8px;
+ }
+.ps-container.ps-active-x>.ps-scrollbar-x-rail, .ps-container.ps-active-y>.ps-scrollbar-y-rail {
+    display: block;
+    background-color: transparent;
+}
+.ps-container>.ps-scrollbar-y-rail>.ps-scrollbar-y {
+    transition: background-color .2s linear;
+    top: 103px;
+    height: 200px;
+    right: 0;
+    width: 5px;
+}
+
+/* flex布局 */
+.flex-container {
+    width: 100%;
+    margin-bottom: 20px;
+    background: #000;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.flex-container .item {
+    width: 120px;
+    margin-bottom: 20px;
+    height: 100px;
+    background: red;
 }
