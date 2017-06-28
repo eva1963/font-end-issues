@@ -269,8 +269,33 @@
 //    })();
 
 
-    var oDiv = document.getElementById("test");
-    console.log(typeof oDiv);
+//    var oDiv = document.getElementById("test");
+//    console.log(typeof oDiv);
+
+    function Fn(name,age){
+        this.name = name;
+        this.age = age;
+        this.getX = function (){
+            console.log(this.age);
+        }
+    }
+
+    var f1 = new Fn;
+    var f2 = new Fn("eva",12);
+//    console.log("getX" in f1);
+//    console.log(F1 instanceof Object);
+//    console.log(Fn instanceof Function);
+    console.log(f1.hasOwnProperty("getX"));
+
+
+//    思考：判断属性是对象的共有属性
+    function hasPubProperty(obj,attr){
+//        判断这个属性是对象的属性，而且不是私有属性，得到的即为共有属性、
+        return (attr in obj) && (!obj.hasOwnProperty(attr))
+    }
+
+
+isPrototypeOf
 
 
 </script>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-hans">
+    <meta name="viewport" content=""/>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #btn {
+            width: 800px;
+            margin: 40px auto;
+            background: #e2e2e2;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="btn">是不是很丑?
+    <span id="spanNum">0</span>
+</div>
+<script type="text/javascript">
+    var btn = document.getElementById("btn");
+    var spanNum = document.getElementById("spanNum");
+
+    /*
+        第一种方法：利用全局变量不销毁的原理，把需要累加的数字定义为全局变量，但是在项目中，为了避免多人合作的时候全局变量冲突我们一般是禁止或者减少使用全局变量的
+        var count = 0;
+      * /
+      /*
+        第二种： 自己形成一个不销毁的私有的作用域来保存我们需要累加的数字
+        (function(){
+            var count = 0;
+            btn.onclick = function () {
+                count++;
+                spanNum.innerHTML = count;
+            };
+        })();
+     */
+
+/*    第三种方法：项目中常用的方法
+    弊端：有一个不销毁的私有作用域，占用一点点内存
+    btn.onclick = (function(){
+        var count = 0;
+        return function(){
+            count++;
+            spanNum.innerHTML = count;
+        };
+    })();
+ */
+
+/*    第四种方法：利用innerHTML的方式处理：每次电机的时候获取页面中最新的值，累加后再重新放回去
+      弊端：每次重新复制的时候页面都要重新渲染一次，不是最优方案
+    btn.onclick = function(){
+        spanNum.innerHTML++;
+    };
+    */
+
+//    第五种写法：利用自定义属性存储（推荐写法）
+    btn.count = 0;
+    btn.onclick = function(){
+        spanNum.innerHTML = ++this.count;
+    };
+
+
+    // function fn(){
+  // console.log(123);
+  // }
+  //
+  // var oDiv = document.getElementById("div");
+  //
+  // oDiv.onclick = fn;  //fn中的this是#div
+  // oDiv.onclick = function(){fn();};   //this则是window
+
+/*  经典面试题
+  var num =20;
+  var obj = {
+    num: 30,
+    fn: (function(num){
+        this.num *= 3;   //此时的this指的是window
+        num += 15;   //此时的num是参数传进来的20，注意这时候这个num就是私有作用域中的私有变量，跟外边的num没有关系了
+
+        var num = 45;  //重新给私有作用域中的num赋值为45
+        return function(){
+            this.num *= 4;
+            num +=20;
+            console.log(num);
+        }
+    })(num)  //把全局变变量num的值20赋给自执行函数的形参，而不是obj下的30，如果想要给的值是30则写法营改是obj.num
+  };
+    var fn = obj.fn;
+    fn();   //65
+    obj.fn(); //85
+    console.log(window.num,obj.num);  //240,120
+    */
+
+//    综合练习题：
+
+
+
+
+</script>
+</body>
+</html>

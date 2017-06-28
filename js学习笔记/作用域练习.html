@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-hans">
+    <meta charset="UTF-8">
+    <title>作用域</title>
+</head>
+<body>
+
+<div id="div">有本事点我啊~</div>
+
+
+<script type="text/javascript">
+    /*
+    i++和++i的区别：
+    var i =5;
+    console.log(2+ (i++)+(++i)+(++i)+(i++));  // ==>30
+    console.log(i); //==> 9
+
+实例1：
+    function fn(i){
+        return function(n){
+            console.log(n + (i++));
+        }
+    }
+var f = fn(13);
+f(12);  //==>25
+f(14);  //28
+fn(15)(12); // 27
+fn(16)(13); //29
+
+//思考题：用闭包作用域的方式实现选卡项
+
+实例2：
+    function fn(){
+        var i = 10;
+        return function(n){
+            console.log(n + (++i));
+        }
+    }
+
+    var f = fn();
+
+    f(10);   // ==> 21
+    f(100); // ==> 112   为什么会是112
+    fn()(10); // ==>21
+    fn()(100); //==>111
+*/
+
+</script>
+</body>
+</html>
