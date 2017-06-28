@@ -205,7 +205,7 @@ FireFox浏览器：FireFox浏览器下占位符文字的透明度默认是0.54�
 		}
 	<!-- 这个很重要，是决定icon居中的核心 -->
 	.icon:before {	content: '\3000';	}		
-
+  
 ###14. 利用flex布局，使内容部分高度为100%
 最近面试问到一个问题，想到就记下来吧！
 实现一个页面，header =30px,footer = 30px,中间的container部分高度100%，用flex布局如何实现？
@@ -269,5 +269,18 @@ FireFox浏览器：FireFox浏览器下占位符文字的透明度默认是0.54�
 超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序:
   	L-V-H-A :  a:link {} a:visited {} a:hover {} a:active {}
 	
+###18、关于空格符\&ensp;和\&emsp;
+
+其中的\&ensp;和\&emsp;由于具有某一超赞的特性，使其可以登上web届的舞台！什么特性呢？如上表加粗展示
+       1. 透明； 
+       2. 宽度正好跟中文正好是1:2和1:1的关系
+于是，一些中文排版对齐什么的，直接就可以使用这两个空格调节，如：
+![Mou icon](img/8.jpg)
+ 
+结果轻松实现了2字/3字/4字中文的等宽两端对齐效果了
+![Mou icon](img/22.png)	
+
+###16、解决position的fixed属性在搜狗浏览器中的兼容问题
+![Mou icon](img/clipboard.png)
 
 
