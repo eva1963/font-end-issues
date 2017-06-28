@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 第二种方法的封装
+        Array.prototype.myslice = function() {
+            var ary = [];
+            for (var i = 0; i < this.length; i++) {
+                ary[ary.length] = this[i];
+            }
+            return ary;
+        }
+
+        function avgFn() {
+            // 将类数组转化为数组 
+            /*
+            第一种方法：不需用myslice方法
+             var ary = [];
+             for (var i = 0; i < arguments.length; i++) {
+                 ary[ary.length] = arguments[i];
+
+             } 
+             */
+
+            // 第二种方法:需用到myslice方法
+            var ary = Array.prototype.myslice.call(arguments);
+            ary.sort(function(a, b) {
+                return a - b;
+            });
+            ary.shift();
+            ary.pop();
+            var result = (eval(ary.join('+')) / ary.length).toFixed(2);
+            return result;
+        }
+        var result = avgFn(9, 8, 6, 5, 1.9, 2, 9.9, 2.1);
+        console.log(result);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        try {
+            console.log(num);
+        } catch (e) {
+            // 可以得到错误信息，将其统计
+            console.log(e.message);
+            // 手动禁止下面代码执行，抛出一条错误信息
+            // throw new Error("您的人品已欠费，请稍后再试~");
+        } finally {
+            // finally一般不使用
+        }
+        console.log(2);
+
+        // 常见的报错
+        new ReferenceError //引用错误
+        new TypeError //类型错误
+        new RangeError //范围错误
+    </script>
+</body>
+
+</html>
