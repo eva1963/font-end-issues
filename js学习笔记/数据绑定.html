@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        #list {
+            padding: 20px;
+            margin: 20px auto 0;
+            width: 240px;
+            border: 1px solid #eee;
+        }
+        
+        #list li {
+            list-style: none;
+            width: 100%;
+            line-height: 20px;
+            height: 24px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            text-align: center;
+            border-radius: 50%;
+        }
+        
+        .bg {
+            background: red;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+        <li class="item"><span class="bg">1</span>我是一个小蝴蝶啊，飞飞飞啊，飞啊飞啊飞啊~你说我，你说我你在说我我就生气！</li>
+        <li class="item"><span class="bg">2</span>我是一个小蝴蝶啊，飞飞飞啊，飞啊飞啊飞啊~你说我，你说我你在说我我就生气！</li>
+        <li class="item"><span class="bg">3</span>我是一个小蝴蝶啊，飞飞飞啊，飞啊飞啊飞啊~你说我，你说我你在说我我就生气！</li>
+    </ul>
+
+    <h1>绑定数据的两种方式：</h1>
+
+    <h3>第一种：</h3>
+    <h3>第二种：字符串拼接</h3>
+    <b>字符串拼接绑定数据使我们以后工作的那个中最常用的一种绑定数据的方式</b>
+    <p>弊端：新添加的字符串添加到ul里之后，之前存在的li标签的动态绑定事件消失了</p>
+
+
+    <h3>js中DOM深入知识</h3>
+    <h4>1.回流</h4>
+    <p>当页面中的HTML发生改变，<b>浏览器都要重新计算一遍最新的DOM结构</b>，重新渲染，包括元素删除，新增，未知的变动等。。</p>
+    <h4>2.重绘</h4>
+    <p>某一元素的部分样式发生改变，<b>浏览器只需重新渲染当前的元素</b></p>
+
+    <script type="text/javascript">
+        var ary = [{
+            title: '字符串拼接绑定数据使我们以后工作的那个中最常用的一种绑定数据的方式',
+            content: '2222字符串拼接绑定数据使我们以后工作的那个中最常用的一种绑定数据的方式'
+        }, {
+            title: '字符串拼接绑定数据使我们以后工作的那个中最常用的一种绑定数据的方式',
+            content: '3333字符串拼接绑定数据使我们以后工作的那个中最常用的一种绑定数据的方式'
+        }, {
+            title: '字符串拼接绑定数据使我们以后工作的那个中最常用的一种绑定数据的方式',
+            content: '4444字符串拼接绑定数据使我们以后工作的那个中最常用的一种绑定数据的方式'
+        }, {
+            title: '字符串拼接绑定数据使我们以后工作的那个中最常用的一种绑定数据的方式',
+            content: '5555字符串拼接绑定数据使我们以后工作的那个中最常用的一种绑定数据的方式'
+        }, {
+            title: '字符串拼接绑定数据使我们以后工作的那个中最常用的一种绑定数据的方式',
+            content: '6666字符串拼接绑定数据使我们以后工作的那个中最常用的一种绑定数据的方式'
+        }]
+
+        var oUl = document.getElementById('list');
+        var oLi = document.getElementsByClassName('item');
+
+        for (var i = 0; i < oLi.length; i++) {
+            oLi[i].onmouseover = function() {
+                this.style.background = 'pink';
+            }
+            oLi[i].onmouseout = function() {
+                this.style.background = '#fff';
+            }
+        }
+
+
+        // 第一种方法： 动态追加元素节点，然后添加到页面中
+        /**/
+        var content = document.getElementsByTagName("content");
+        var frg = document.createDocumentFragment('div');
+        for (var i = 0; i < ary.length; i++) {
+            var cur = ary[i];
+            var oLi = document.createElement('li');
+            oLi.className = 'item';
+            oLi.innerHTML = "<span>" + (i + 4) + "</span>" + cur.title;
+            frg.appendChild(oLi);
+        }
+        oUl.appendChild(frg);
+        frg = null; //释放内存
+
+        // 第二种方法： 凭借字符串，然后把字符串一次性添加到页面中
+        // 如果列表是从0-1的渲染，这个用来毫无问题，
+        // 但是如果前三个已经有了，且有绑定的方法，这种方法则会使前三个的方法失效
+        /* var str = '';
+        for (var i = 0; i < ary.length; i++) {
+            var cur = ary[i];
+            console.log(cur);
+            str += "<li>";
+            str += "<span>" + (i + 4) + "</span>";
+            str += cur.title;
+            str += "</li>";
+        }
+        oUl.innerHTML += str;
+        */
+    </script>
+</body>
+
+</html>

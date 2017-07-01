@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2>JSON只是一种数据格式</h2>
+        <p>在window浏览器对象中提供了JSON属性，提供了两个方法</p>
+        <p>(1)window.JSON自带的方法</p>
+        <h3>1.JSON.parse 把JSON对象转化为字符串 </h3>
+        <h3>2.JSON.stringify 把字符串转化为JSON对象</h3>
+    </div>
+    <script>
+        // 在IE6,7下没有JSON对象
+        var strJson = {
+            "name": "eva",
+            "age": "12"
+        };
+        var a = JSON.stringify(strJson);
+        var b = JSON.parse(a);
+    </script>
+</body>
+
+</html>

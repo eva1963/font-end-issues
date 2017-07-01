@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 回调函数
+        // 把方法A当做一个参数传给函数B，然后在执行B的过程中按需求随时执行A
+        function Fn(callBack) {
+            callBack();
+        }
+
+        var ary = [9, 0, 3, 6]
+        ary.sort(function(a, b) {
+            return a - b; //升序
+            //          return b - a; //降序
+        });
+        console.log(ary);
+        // 二维数组比较
+        var ary1 = [{
+            name: '刘欢',
+            age: 10
+        }, {
+            name: '陈真',
+            age: 9
+        }, {
+            name: '李俊平',
+            age: 120
+        }]
+        ary1.sort(function(a, b) {
+            // return parseFloat(a.age) - parseFloat(b.age); //按照年龄大小排序
+
+            // localeCompare字符串比较的方法
+            return b.name.localeCompare(a.name); //按照名字顺序排列
+        });
+        console.log(ary1);
+    </script>
+</body>
+
+</html>
