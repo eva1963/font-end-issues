@@ -2,6 +2,42 @@
  * Created by Eva on 16/8/3.
  */
 $(function(){
+    window.onpopstate = function(event) {
+        alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+    };
+//绑定事件处理函数.
+    history.pushState({page: 1}, "title 1", "?page=1");    //添加并激活一个历史记录条目 http://example.com/example.html?page=1,条目索引为1
+    history.pushState({page: 2}, "title 2", "?page=2");    //添加并激活一个历史记录条目 http://example.com/example.html?page=2,条目索引为2
+    history.replaceState({page: 3}, "title 3", "?page=3"); //修改当前激活的历史记录条目 http://ex..?page=2 变为 http://ex..?page=3,条目索引为3
+    history.back(); // 弹出 "location: http://example.com/example.html?page=1, state: {"page":1}"
+    history.back(); // 弹出 "location: http://example.com/example.html, state: null
+    history.go(2);  // 弹出 "location: http://example.com/example.html?page=3, state: {"page":3}
+
+    // 浏览器回退事件
+    var detectBack = {
+        initialize: function() {
+            //监听hashchange事件
+            window.addEventListener('hashchange', function() {
+                console.log('====1====');
+                //为当前导航页附加一个tag
+                this.history.replaceState('hasHash', '', '');
+            }, false);
+
+            window.addEventListener('popstate', function(e) {
+                console.log('====2====');
+                if (e.state) {
+                    //侦测是用户触发的后退操作, dosomething
+                    //这里刷新当前url
+                    this.location.reload();
+                }
+            }, false);
+        }
+    }
+
+    // detectBack.initialize();
+
+
+
 
     $('.tooltip').mouseover(function(e){
         this.mytitle = this.title;
