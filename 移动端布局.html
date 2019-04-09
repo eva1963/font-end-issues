@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
@@ -8,14 +9,16 @@
 
 </head>
 <style>
-    *{
+    * {
         padding: 0;
         margin: 0;
     }
+    
     .wrapper {
         width: 100%;
         height: 100%;
     }
+    
     .header {
         position: absolute;
         top: 0;
@@ -23,36 +26,74 @@
         z-index: 9;
         width: 100%;
         height: 44px;
-        background: red;
+        background: #e4e4e4;
+        display: flex;
+        flex-direction: row;
     }
+    
+    .header a {
+        flex: 1;
+        text-align: center;
+        line-height: 44px;
+        color: #333;
+        text-decoration: none;
+    }
+    
     .main {
         position: absolute;
-        top: 44px;
-        bottom: 44px;
-        left: 0;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
         z-index: 8;
         width: 100%;
         height: 100%;
-        background: pink;
     }
+    
+    .container {
+        padding: 0 10px;
+        height: 2000px;
+    }
+    
     .footer {
+        display: flex;
         width: 100%;
         height: 44px;
         position: absolute;
         bottom: 0;
         left: 0;
         z-index: 9;
-        background: blue;
+        background: #e4e4e4;
+    }
+    
+    .footer a {
+        flex: 1;
+        text-align: center;
+        line-height: 44px;
+        color: #333;
+        text-decoration: none;
     }
 </style>
+
 <body>
-<div class="wrapper">
+    <div class="wrapper">
 
-    <div class="header"></div>
-    <div class="main"></div>
-    <div class="footer"></div>
+        <div class="header">
+            <a href="JavaScript:;">首页</a>
+            <a href="JavaScript:;">代码</a>
+            <a href="JavaScript:;">源码</a>
+            <a href="JavaScript:;">关于</a>
+        </div>
+        <div class="main">
+            <div class="container"></div>
+        </div>
+        <div class="footer">
+            <a href="JavaScript:;">1</a>
+            <a href="JavaScript:;">2</a>
+            <a href="JavaScript:;">3</a>
+            <a href="JavaScript:;">4</a>
+        </div>
 
-</div>
+    </div>
 
 </body>
+
 </html>
